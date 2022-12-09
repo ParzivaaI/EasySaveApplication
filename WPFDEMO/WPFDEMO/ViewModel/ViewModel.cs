@@ -27,30 +27,30 @@ namespace WPFDEMO.ViewModel
         }
 
         public ICommand MajusculeCommand { get; set; }
-        public ICommand MinusculeCommand { get; set; }
-        public ICommand Save { get; set; }
+        public ICommand DifferentialSave { get; set; }
+        public ICommand CompleteSave { get; set; }
 
         //Constructeur
         public ViewModel()  
         {
             currentModele = new Modele();
             MajusculeCommand = new RelayCommand(toUppercase);
-            MinusculeCommand = new RelayCommand(toLowercase);
-            Save = new RelayCommand(CompleteSaveFunction);
+            DifferentialSave = new RelayCommand(DifferentialSaveFunction);
+            CompleteSave = new RelayCommand(CompleteSaveFunction);
         }
 
         private void CompleteSaveFunction()
         {
-            currentModele.completesave();
+            currentModele.Completesave();
             CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
         }
         private void toUppercase()
         {
             CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToCopy.ToUpper(),0);
         }
-        private void toLowercase()
+        private void DifferentialSaveFunction()
         {
-            currentModele.minuscule();
+            currentModele.Differentialsave();
             CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
         }
 

@@ -31,7 +31,7 @@
                 VerticalAlignment="Top"
                 Width="499"
                      />
-            <Button Command="{Binding Save}" Grid.Row="4" Content="Sauvegarde complete" FontSize="20" FontFamily="Rockwell Extra Bold" Foreground="#FFF9C927" BorderBrush="{x:Null}">
+            <Button Command="{Binding CompleteSave}" Grid.Row="4" Content="Sauvegarde complete" FontSize="20" FontFamily="Rockwell Extra Bold" Foreground="#FFF9C927" BorderBrush="{x:Null}">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF0B1F3C" Offset="0"/>
@@ -39,7 +39,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Command="{Binding MinusculeCommand}" Grid.Row="5" Content="Sauvegarde Différentielle" FontSize="20" FontFamily="Rockwell Extra Bold" Foreground="#FFF9C927" BorderBrush="{x:Null}">
+            <Button Command="{Binding DifferentialSave}" Grid.Row="5" Content="Sauvegarde Différentielle" FontSize="20" FontFamily="Rockwell Extra Bold" Foreground="#FFF9C927" BorderBrush="{x:Null}">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF0B1F3C" Offset="0"/>
@@ -132,6 +132,11 @@
                 FontFamily="Yu Gothic UI Semibold"
                 FontSize="20"
                 IsEnabled="False" Grid.RowSpan="2"><Run Text="Add the Folder"/><Run Text=" target"/><Run Text=" :"/></TextBlock>
+            <CheckBox Content="Cryptage" HorizontalAlignment="Left" Margin="631,13,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="113"
+                Foreground="White" 
+                FontSize="22" 
+                FontFamily="Yu Gothic UI Semibold"  
+                Background="White" />
         </Grid>
     </Border>
 

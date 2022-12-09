@@ -23,6 +23,7 @@ namespace WPFDEMO.Model
             this.pathToPaste = @"C:\Program Files (x86)";
             this.leftToTransfer = 1;
         }
+        BlackList BannedProgramms = new BlackList();
         public String name { get; set; }
         public String pathToCopy { get; set; }
         public String pathToPaste { get; set; }
@@ -30,11 +31,12 @@ namespace WPFDEMO.Model
 
         Save RunningSave = new Save();
 
-        public void minuscule()
+        public void Differentialsave()
         {
-            pathToPaste = pathToCopy.ToLower();
+            RunningSave.Variables(name, pathToCopy, pathToPaste, leftToTransfer);
+            RunningSave.DiffSave();
         }
-        public void completesave()
+        public void Completesave()
         {
             RunningSave.Variables(name,pathToCopy,pathToPaste, leftToTransfer);
             RunningSave.CompleteSave();

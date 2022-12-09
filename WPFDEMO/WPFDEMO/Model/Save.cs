@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Timers;
 using System.Text;
+using System.Diagnostics;
 
 namespace WPFDEMO.Model
 {
@@ -56,7 +57,7 @@ namespace WPFDEMO.Model
             {
                 Directory.CreateDirectory(dirPath.Replace(copyDirectory, pasteDirectory)); //créer le dossier dans la nouvelle sauvegarde pour chaque dossier existant
             }
-            //Copying all the files, replace if same name
+            //Copie des fichiers, remplace si existe déjà
             foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
             {
                 totalFileSize += newPath.Length;
@@ -158,20 +159,20 @@ namespace WPFDEMO.Model
                 Textch = szInputStringBuild[iCount];
                 Textch = (char)(Textch ^ clehash);
                 szOutStringBuild.Append(Textch);
-            }
+            }   
             return szOutStringBuild.ToString();
         }
-        /*        public void Encrypt(string sourceDir, string targetDir)//Fonction de cryptage
-                {
-                    using (Process process = new Process())//Création du process
-                    {
-                        process.StartInfo.FileName = @"..\..\..\Ressources\CryptoSoft\CryptoSoft.exe"; //Calls the process that is CryptoSoft
-                        process.StartInfo.Arguments = String.Format("\"{0}\"", sourceDir) + " " + String.Format("\"{0}\"", targetDir); //Preparation of variables for the process.
-                        process.Start(); //Launching the process
-                        process.Close();
+        public void Encrypt(string sourceDir, string targetDir)//Fonction de cryptage
+        {
+            using (Process process = new Process())//Création du process
+            {
+                process.StartInfo.FileName = @"..\..\..\Ressources\CryptoSoft.exe"; //Appel du process Cryptosoft
+                process.StartInfo.Arguments = String.Format("\"{0}\"", sourceDir) + " " + String.Format("\"{0}\"", targetDir);
+                process.Start();
+                process.Close();
 
-                    }
+            }
 
-                }*/
+        }
     }
 }
