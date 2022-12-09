@@ -18,9 +18,9 @@ namespace WPFDEMO.Model
         }
         public Modele()
         {
-            this.name = "Set the name here";
-            this.pathToCopy = "Input the path you want to copy here";
-            this.pathToPaste = "Input the path you want it pasted here";
+            this.name = "Backup";
+            this.pathToCopy = @"C:\";
+            this.pathToPaste = @"C:\Program Files (x86)";
             this.leftToTransfer = 1;
         }
         public String name { get; set; }
