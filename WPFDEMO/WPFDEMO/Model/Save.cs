@@ -3,6 +3,8 @@ using System;
 using System.IO;
 using System.Timers;
 using System.Text;
+using System.Threading;
+using Timer = System.Timers.Timer;
 
 namespace WPFDEMO.Model
 {
@@ -40,6 +42,7 @@ namespace WPFDEMO.Model
         }
         public void CompleteSave()
         {
+            Thread saveComplete = new Thread(CompleteSave);
             //Demarrer le timer
             timer.Elapsed += SaveTimer;
             timer.Enabled = true;
@@ -88,10 +91,13 @@ namespace WPFDEMO.Model
             };
             string jsonString = JsonConvert.SerializeObject(logger);
             logger.SaveLog(jsonString);
+            
+            saveComplete.Abort();
 
         }
         public void DiffSave()
         {
+            Thread saveDiff =new Thread(new ThreadStart(DiffSave));
             SaveCompleted = "Differential";
             long totalFileSize = 0;
             //Demarrer le timer
@@ -142,6 +148,8 @@ namespace WPFDEMO.Model
             };
             string jsonString = JsonConvert.SerializeObject(logger);
             logger.SaveLog(jsonString);
+
+            saveDiff.Abort();
         }
     
         void SaveTimer(object sender, ElapsedEventArgs e)
@@ -160,6 +168,8 @@ namespace WPFDEMO.Model
                 szOutStringBuild.Append(Textch);
             }
             return szOutStringBuild.ToString();
+            
+            
         }
         /*        public void Encrypt(string sourceDir, string targetDir)//Fonction de cryptage
                 {

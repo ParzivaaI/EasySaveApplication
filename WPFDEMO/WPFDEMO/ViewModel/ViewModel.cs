@@ -8,14 +8,20 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WPFDEMO.Model;
+using System.Threading;
+using Microsoft.SqlServer.Server;
+using System.Diagnostics;
+
 
 namespace WPFDEMO.ViewModel
 {
     class ViewModel : INotifyPropertyChanged
     {
+     
         Modele currentModele;
         public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged([CallerMemberName] String propertyName = "")
+
+    private void RaisePropertyChanged([CallerMemberName] String propertyName = "")
         {
             //MessageBox.Show("Hello"+ propertyName);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -31,7 +37,7 @@ namespace WPFDEMO.ViewModel
         public ICommand Save { get; set; }
 
         //Constructeur
-        public ViewModel()  
+        public ViewModel()
         {
             currentModele = new Modele();
             MajusculeCommand = new RelayCommand(toUppercase);
@@ -42,17 +48,20 @@ namespace WPFDEMO.ViewModel
         private void CompleteSaveFunction()
         {
             currentModele.completesave();
-            CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
+            CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToPaste, 0);
         }
         private void toUppercase()
         {
-            CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToCopy.ToUpper(),0);
+            CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToCopy.ToUpper(), 0);
         }
         private void toLowercase()
         {
             currentModele.minuscule();
-            CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
+            CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToPaste, 0);
         }
 
-    }
+     
+
+
+}
 }
