@@ -65,10 +65,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\BannedPrograms.cs" />
     <Compile Include="Model\Langues.cs" />
     <Compile Include="Model\Logger.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Save.cs" />
+    <Compile Include="Remote\Server.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\View.xaml.cs">
@@ -103,7 +105,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Ressources\CryptoSoft.exe" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="View\View.xaml">
       <SubType>Designer</SubType>

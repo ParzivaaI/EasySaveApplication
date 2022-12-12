@@ -18,7 +18,6 @@ namespace WPFDEMO.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged([CallerMemberName] String propertyName = "")
         {
-            //MessageBox.Show("Hello"+ propertyName);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         public Modele CurrentModele
@@ -33,34 +32,44 @@ namespace WPFDEMO.ViewModel
         }
 
         public ICommand MajusculeCommand { get; set; }
-        public ICommand MinusculeCommand { get; set; }
-        public ICommand Save { get; set; }
-        public ICommand Francais { get; set; }
-        public ICommand English { get; set; }
-        //Constructeur
-        public ViewModel()  
-        {
-            currentLangues = new Langues();
-            currentModele = new Modele();
-            MajusculeCommand = new RelayCommand(toUppercase);
-            MinusculeCommand = new RelayCommand(toLowercase);
-            Save = new RelayCommand(CompleteSaveFunction);
-            Francais = new RelayCommand(Addfrench);
-            English = new RelayCommand(AddEnglish);
-        }
+        public ICommand DifferentialSave { get; set; }
+        public ICommand CompleteSave { get; set; }
+        public ICommand CryptingFunction { get; set; }
 
+        //Constructeur
+        public ViewModel()
+        {
+            currentModele = new Modele(); //On initialise le modèle et les différents relais
+            MajusculeCommand = new RelayCommand(ToUppercase);
+            DifferentialSave = new RelayCommand(DifferentialSaveFunction);
+            CompleteSave = new RelayCommand(CompleteSaveFunction);
+            CryptingFunction = new RelayCommand(Crypting);;
+        }
+        private void Crypting()
+        {
+
+        }
         private void CompleteSaveFunction()
         {
-            currentModele.completesave();
-            CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
+            try
+            {
+                if(CurrentModele.BlacklistedPrograms()) //On verifie si un programme de la blacklist est actif
+                {
+                currentModele.Completesave(); //Si non, on fait la sauvegarde et met a jour le modèle
+                CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
+                }
+            }
+            catch(Exception)
+            {
+            }
         }
-        private void toUppercase()
+        private void ToUppercase()
         {
             CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToCopy.ToUpper(),0);
         }
-        private void toLowercase()
+        private void DifferentialSaveFunction()
         {
-            currentModele.minuscule();
+            currentModele.Differentialsave();
             CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
         }
         private void AddEnglish()
