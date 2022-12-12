@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WPFDEMO.Commands;
 using WPFDEMO.Model;
 
 namespace WPFDEMO.ViewModel
@@ -74,7 +75,7 @@ namespace WPFDEMO.ViewModel
         }
         private void AddEnglish()
         {
-            CurrentLangues = new Langues("Add a new save name :", "Add the folder location :", "Add the folder destination :", "Complete Save", "Differential Save");
+            CurrentLangues = new Langues("Add a new save name :", "Add the location of the folder :", "Add the destination of the folder :", "Complete Save", "Differential Save");
         }
         private void Addfrench()
         {

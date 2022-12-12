@@ -67,56 +67,56 @@
             <RadioButton
                 Command="{Binding English}"
                 Content="English"
-                Margin="768,10,10,0"
-                Foreground="White"
-                FontSize="28"
-                FontFamily="Yu Gothic UI Semibold"
-                VerticalAlignment="Center"
-                Background="White"
+                Margin="768,10,10,0" 
+                Foreground="White" 
+                FontSize="28" 
+                FontFamily="Yu Gothic UI Semibold" 
+                VerticalAlignment="Center" 
+                Background="White" 
                 Height="65"
-
+                             
                              />
-            <RadioButton
+            <RadioButton 
                 Command="{Binding Francais}"
                 Content="Français"
-                Margin="629,10,149,0"
-                Foreground="White"
-                FontSize="28"
-                FontFamily="Yu Gothic UI Semibold"
-                VerticalAlignment="Center"
-                Background="White"
+                Margin="629,10,149,0" 
+                Foreground="White" 
+                FontSize="28" 
+                FontFamily="Yu Gothic UI Semibold" 
+                VerticalAlignment="Center" 
+                Background="White" 
                 Height="65"
-
+                             
                              />
-            <TextBlock HorizontalAlignment="Left"
-                       Height="65"
-                       Margin="30,10,0,0"
-                       TextWrapping="Wrap"
-                       VerticalAlignment="Top"
-                       Width="188"
+            <TextBlock HorizontalAlignment="Left" 
+                       Height="65" 
+                       Margin="30,10,0,0" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top" 
+                       Width="188" 
                        FontFamily="Cooper Black"
-                       FontSize="36"
-                       Foreground="White"
+                       FontSize="36" 
+                       Foreground="White" 
                        FontWeight="Bold"><Run Foreground="#FFE45151" Text="E"/><Run Text="asy"/><Run Foreground="Yellow" Text="S"/><Run Text="ave"/></TextBlock>
-            <TextBox Text="{Binding CurrentModele.pathToCopy}"
-                     x:Name="CopyFilePath" HorizontalAlignment="Left"
-                     Height="24"
-                     Margin="124,161,0,0"
-                     Grid.Row="1"
+            <TextBox Text="{Binding CurrentModele.pathToCopy}" 
+                     x:Name="CopyFilePath" HorizontalAlignment="Left" 
+                     Height="24" 
+                     Margin="124,161,0,0" 
+                     Grid.Row="1" 
                      TextWrapping="Wrap"
-                     VerticalAlignment="Top"
-                     Width="499"
-
+                     VerticalAlignment="Top" 
+                     Width="499" 
+                     
                      />
             <TextBlock HorizontalAlignment="Left"
                        Margin="124,123,0,0"
                        Grid.Row="1"
                        TextWrapping="Wrap"
                        Text="{Binding CurrentLangues.folderCopy}"
-                       VerticalAlignment="Top"
-                       Height="33"
+                       VerticalAlignment="Top" 
+                       Height="33" 
                        Width="499"
-                       Foreground="White"
+                       Foreground="White" 
                        FontFamily="Yu Gothic UI Semibold"
                        FontSize="24"
                        IsEnabled="False"
@@ -128,7 +128,7 @@
                      Margin="124,266,0,0"
                      Grid.Row="1"
                      TextWrapping="Wrap"
-                     VerticalAlignment="Top"
+                     VerticalAlignment="Top" 
                      Width="499"
                      />
             <TextBlock
@@ -139,24 +139,24 @@
                        TextWrapping="Wrap"
                        VerticalAlignment="Top"
                        Height="33"
-                       Width="499"
+                       Width="499" 
                        Foreground="White"
                        FontFamily="Yu Gothic UI Semibold"
                        FontSize="24"
                       />
             <TextBlock x:Name="FolderWasSavedSuccessflly"
-                       HorizontalAlignment="Left"
-                       Margin="377,433,0,0"
+                       HorizontalAlignment="Left" 
+                       Margin="377,433,0,0" 
                        Grid.Row="1"
                        TextWrapping="Wrap"
                        VerticalAlignment="Top"
-                       Height="22" Width="246"
-                       Foreground="#FF64F300"
+                       Height="22" Width="246" 
+                       Foreground="#FF64F300" 
                        FontFamily="Segoe UI Emoji"
                        FontStyle="Italic"
-                       FontWeight="Bold"
-                       FontStretch="ExtraCondensed"
-                       TextDecorations="{x:Null}"
+                       FontWeight="Bold" 
+                       FontStretch="ExtraCondensed" 
+                       TextDecorations="{x:Null}" 
                        FontSize="16"
                        />
             <Button Command="{Binding Save}"
@@ -168,7 +168,7 @@
                     Width="274"
                     Height="70"
                     FontSize="17"
-                    FontFamily="Rockwell Extra Bold"
+                    FontFamily="Rockwell Extra Bold" 
                     Foreground="#FFF9C927"
                     BorderBrush="{x:Null}" Click="Button_Click_1"
                     >
@@ -184,15 +184,15 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <TextBox
-                    Text="{Binding CurrentModele.name}"
+            <TextBox 
+                    Text="{Binding CurrentModele.name}" 
                     HorizontalAlignment="Left"
                      Height="26" Margin="124,48,0,0"
                      Grid.Row="1"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
-                     Width="499"
-
+                     Width="499" 
+                    
                      />
             <TextBlock
                        Text="{Binding CurrentLangues.savename}"
@@ -207,7 +207,7 @@
                        Foreground="White"
                        FontSize="24"
                        />
-            <Button
+            <Button 
                 Command="{Binding MinusculeCommand}"
                 Content="{Binding CurrentLangues.saveDifferential}"
                 HorizontalAlignment="Left"
@@ -217,9 +217,9 @@
                 Width="279"
                 Height="70"
                 FontSize="17"
-                FontFamily="Rockwell Extra Bold"
+                FontFamily="Rockwell Extra Bold" 
                 Foreground="#FFF9C927"
-                BorderBrush="{x:Null}"
+                BorderBrush="{x:Null}" Click="Button_Click_1"
                     >
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
