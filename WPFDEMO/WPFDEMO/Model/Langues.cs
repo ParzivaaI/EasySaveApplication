@@ -25,10 +25,10 @@ namespace WPFDEMO.Model
         public Langues()
         {
             this.savename = "Add a new save name :";
-            this.folderCopy = "add the location of the folder :";
-            this.folderPast = "add the destination of the folder :";
-            this.saveComplete = "complete saving";
-            this.saveDifferential = "differential saving";
+            this.folderCopy = "Add the folder location :";
+            this.folderPast = "Add the folder destination :";
+            this.saveComplete = "Complete save";
+            this.saveDifferential = "Differential save";
         }
     }
 }

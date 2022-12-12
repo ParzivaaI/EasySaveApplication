@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using WPFDEMO.Commands;
 using WPFDEMO.Model;
 
 namespace WPFDEMO.ViewModel
