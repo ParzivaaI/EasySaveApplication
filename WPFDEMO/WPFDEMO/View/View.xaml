@@ -5,64 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:WPFDEMO.ViewModel"
         mc:Ignorable="d"
-        Title="View" Height="450" Width="800">
+        Title="View" Height="600" Width="920">
     <Window.DataContext>
         <vm:ViewModel/>
     </Window.DataContext>
-    <Border  Background="#FF2A2651">
+    <Border Background="#FF2A2651"
+            CornerRadius="35">
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBox HorizontalAlignment="Left"
-                Height="26" Margin="10,22,0,0" 
-                Grid.Row="1" 
-                TextWrapping="Wrap" 
-                Text="{Binding CurrentModele.name}" 
-                VerticalAlignment="Top"
-                Width="499"
-                     />
-            <Button Command="{Binding Save}" Grid.Row="4" Content="Sauvegarde complete" FontSize="20" FontFamily="Rockwell Extra Bold" Foreground="#FFF9C927" BorderBrush="{x:Null}">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF0B1F3C" Offset="0"/>
-                        <GradientStop Color="#FF305F99" Offset="0.704"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button Command="{Binding MinusculeCommand}" Grid.Row="5" Content="Sauvegarde Différentielle" FontSize="20" FontFamily="Rockwell Extra Bold" Foreground="#FFF9C927" BorderBrush="{x:Null}">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF0B1F3C" Offset="0"/>
-                        <GradientStop Color="#FF305F99" Offset="0.704"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button Command="{Binding MajusculeCommand}" Grid.Row="6" Content="Sauvegarde Differentielle"/>
 
-            <TextBlock HorizontalAlignment="Left" 
-               Grid.Row="0"
-                TextWrapping="Wrap" 
-                VerticalAlignment="Top" 
-                Width="188" 
-                FontFamily="Cooper Black"
-                FontSize="36" 
-                Foreground="White" 
-                FontWeight="Bold" Margin="10,24,0,0"><Run Foreground="#FFE45151" Text="E"/><Run Text="asy"/><Run Foreground="Yellow" Text="S"/><Run Text="ave"/></TextBlock>
+            <Grid.RowDefinitions>
+                <RowDefinition 
+                    Height="75"/>
+
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+
+
+
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
             <RadioButton 
-                Content="Français"
-                Margin="530,10,121.6,0" 
+                Command="{Binding English}"
+                Content="English"
+                Margin="768,10,10,0" 
                 Foreground="White" 
-                FontSize="22" 
+                FontSize="28" 
                 FontFamily="Yu Gothic UI Semibold" 
                 VerticalAlignment="Center" 
                 Background="White" 
@@ -70,69 +42,165 @@
                              
                              />
             <RadioButton 
-                Content="English"
-                Margin="652,10,-0.4,0" 
+                Command="{Binding Francais}"
+                Content="Français"
+                Margin="629,10,149,0" 
                 Foreground="White" 
-                FontSize="22" 
+                FontSize="28" 
                 FontFamily="Yu Gothic UI Semibold" 
                 VerticalAlignment="Center" 
                 Background="White" 
-                Height="65"/>
-            <TextBlock HorizontalAlignment="Left"
-                Margin="10,70,0,0" 
-                TextWrapping="Wrap" 
-                Text="Enter the save name :" 
-                VerticalAlignment="Top" 
-                Height="33" 
-                Width="275" 
-                FontFamily="Yu Gothic UI Semibold"
-                Foreground="White"
-                FontSize="20"
-                Grid.RowSpan="2"
-                />
-            <TextBox x:Name="CopyFilePath" HorizontalAlignment="Left" 
-                Height="24" 
-                Margin="10,28.4,0,0" 
-                Grid.Row="2"
-                Text="{Binding CurrentModele.pathToCopy}" 
-                TextWrapping="Wrap"
-                VerticalAlignment="Top" 
-                Width="499" 
+                Height="65"
+                             
+                             />
+            <TextBlock HorizontalAlignment="Left" 
+                       Height="65" 
+                       Margin="30,10,0,0" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top" 
+                       Width="188" 
+                       FontFamily="Cooper Black"
+                       FontSize="36" 
+                       Foreground="White" 
+                       FontWeight="Bold"><Run Foreground="#FFE45151" Text="E"/><Run Text="asy"/><Run Foreground="Yellow" Text="S"/><Run Text="ave"/></TextBlock>
+            <TextBox Text="{Binding CurrentModele.pathToCopy}" 
+                     x:Name="CopyFilePath" HorizontalAlignment="Left" 
+                     Height="24" 
+                     Margin="124,161,0,0" 
+                     Grid.Row="1" 
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" 
+                     Width="499" 
+                     
                      />
             <TextBlock HorizontalAlignment="Left"
-                Margin="22,0.4,0,0" 
-                Grid.Row="2"
-                TextWrapping="Wrap"
-                Text="Add the Folder source :"
-                VerticalAlignment="Top" 
-                Height="33" 
-                Width="284"
-                Foreground="White" 
-                FontFamily="Yu Gothic UI Semibold"
-                FontSize="20"
-                IsEnabled="False"
+                       Margin="124,123,0,0" 
+                       Grid.Row="1"
+                       TextWrapping="Wrap"
+                       Text="{Binding CurrentLangues.folderCopy}"
+                       VerticalAlignment="Top" 
+                       Height="33" 
+                       Width="499"
+                       Foreground="White" 
+                       FontFamily="Yu Gothic UI Semibold"
+                       FontSize="24"
+                       IsEnabled="False"
                        />
-            <TextBox x:Name="DestinationFilePath" HorizontalAlignment="Left" 
-                Height="24" 
-                Margin="10,32.8,0,0" 
-                Grid.Row="3" 
-                TextWrapping="Wrap"
-                Text="{Binding CurrentModele.pathToPaste}" 
-                VerticalAlignment="Top" 
-                Width="499"
+            <TextBox
+                     Text="{Binding CurrentModele.pathToPaste}" 
+                     x:Name="DestinationFilePath" HorizontalAlignment="Left" 
+                     Height="24" 
+                     Margin="124,266,0,0" 
+                     Grid.Row="1" 
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" 
+                     Width="499"
                      />
-            <TextBlock HorizontalAlignment="Left"
-                Margin="10,52.4,0,0"
-                Grid.Row="2" 
-                TextWrapping="Wrap" 
+            <TextBlock
+                       Text="{Binding CurrentLangues.folderPast}"
+                       HorizontalAlignment="Left"
+                       Margin="124,228,0,0"
+                       Grid.Row="1" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top"
+                       Height="33"
+                       Width="499" 
+                       Foreground="White"
+                       FontFamily="Yu Gothic UI Semibold"
+                       FontSize="24"
+                      />
+            <TextBlock x:Name="FolderWasSavedSuccessflly"
+                       HorizontalAlignment="Left" 
+                       Margin="377,433,0,0" 
+                       Grid.Row="1"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Top"
+                       Height="22" Width="246" 
+                       Foreground="#FF64F300" 
+                       FontFamily="Segoe UI Emoji"
+                       FontStyle="Italic"
+                       FontWeight="Bold" 
+                       FontStretch="ExtraCondensed" 
+                       TextDecorations="{x:Null}" 
+                       FontSize="16"
+                       />
+            <Button Command="{Binding Save}"
+                    Content="{Binding CurrentLangues.saveComplete}"
+                    HorizontalAlignment="Left"
+                    Margin="98,358,0,0" 
+                    Grid.Row="1"
+                    VerticalAlignment="Top"
+                    Width="274"
+                    Height="70"
+                    FontSize="17"
+                    FontFamily="Rockwell Extra Bold" 
+                    Foreground="#FFF9C927"
+                    BorderBrush="{x:Null}" Click="Button_Click_1"
+                    >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0B1F3C" Offset="0"/>
+                        <GradientStop Color="#FF305F99" Offset="0.704"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <TextBox 
+                    Text="{Binding CurrentModele.name}" 
+                    HorizontalAlignment="Left"
+                     Height="26" Margin="124,48,0,0" 
+                     Grid.Row="1" 
+                     TextWrapping="Wrap" 
+                     VerticalAlignment="Top"
+                     Width="499" 
+                    
+                     />
+            <TextBlock
+                       Text="{Binding CurrentLangues.savename}"
+                       HorizontalAlignment="Left"
+                       Margin="124,10,0,0" 
+                       Grid.Row="1" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top" 
+                       Height="33" 
+                       Width="499" 
+                       FontFamily="Yu Gothic UI Semibold"
+                       Foreground="White"
+                       FontSize="24"
+                       />
+            <Button 
+                Command="{Binding MinusculeCommand}"
+                Content="{Binding CurrentLangues.saveDifferential}"
+                HorizontalAlignment="Left"
+                Margin="484,358,0,0" 
+                Grid.Row="1"
                 VerticalAlignment="Top"
-                Height="33"
-                Width="284" 
-                Foreground="White"
-                FontFamily="Yu Gothic UI Semibold"
-                FontSize="20"
-                IsEnabled="False" Grid.RowSpan="2"><Run Text="Add the Folder"/><Run Text=" target"/><Run Text=" :"/></TextBlock>
+                Width="279"
+                Height="70"
+                FontSize="17"
+                FontFamily="Rockwell Extra Bold" 
+                Foreground="#FFF9C927"
+                BorderBrush="{x:Null}" Click="Button_Click_1"
+                    >
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0B1F3C" Offset="0"/>
+                        <GradientStop Color="#FF305F99" Offset="0.704"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
         </Grid>
+
     </Border>
 
 </Window>

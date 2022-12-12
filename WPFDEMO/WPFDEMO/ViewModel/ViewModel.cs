@@ -13,6 +13,7 @@ namespace WPFDEMO.ViewModel
 {
     class ViewModel : INotifyPropertyChanged
     {
+        Langues currentLangues;
         Modele currentModele;
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged([CallerMemberName] String propertyName = "")
@@ -25,18 +26,27 @@ namespace WPFDEMO.ViewModel
             get { return currentModele; }
             set { currentModele = value; RaisePropertyChanged("currentModele"); }
         }
+        public Langues CurrentLangues
+        {
+            get { return currentLangues; }
+            set { currentLangues = value; RaisePropertyChanged("currentLangues"); }
+        }
 
         public ICommand MajusculeCommand { get; set; }
         public ICommand MinusculeCommand { get; set; }
         public ICommand Save { get; set; }
-
+        public ICommand Francais { get; set; }
+        public ICommand English { get; set; }
         //Constructeur
         public ViewModel()  
         {
+            currentLangues = new Langues();
             currentModele = new Modele();
             MajusculeCommand = new RelayCommand(toUppercase);
             MinusculeCommand = new RelayCommand(toLowercase);
             Save = new RelayCommand(CompleteSaveFunction);
+            Francais = new RelayCommand(Addfrench);
+            English = new RelayCommand(AddEnglish);
         }
 
         private void CompleteSaveFunction()
@@ -53,6 +63,13 @@ namespace WPFDEMO.ViewModel
             currentModele.minuscule();
             CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
         }
-
+        private void AddEnglish()
+        {
+            CurrentLangues = new Langues("Add a new save name :", "Add the location of the folder :", "Add the destination of the folder :", "Complete Save :", "Differential Save :");
+        }
+        private void Addfrench()
+        {
+            CurrentLangues = new Langues("Ajouter un nom à la sauvgarde :", "Ajouter le chemin d'accès du dossier :", "Ajouter le dossier de déstination :", "Sauvgarde Complete", "Sauvgarde Differentialle");
+        }
     }
 }
