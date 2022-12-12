@@ -28,26 +28,19 @@ namespace WPFDEMO.View
 
             InitializeComponent();
 
-            /*var pr = System.Diagnostics.Process.GetProcessesByName(
-              System.IO.Path.GetFileNameWithoutExtension(typeof(Process).Assembly.Location));
-            var Id = System.Diagnostics.Process.GetCurrentProcess().Id;
-            foreach (var p in pr.Where(x => x.Id != Id))
-            {
-                p.Kill();
-            }*/
-            
+                       
             
         }
         private void LoadProcess()
         {
-            Process[] workApp = Process.GetProcessesByName("WPFDEMO");//get all process            
+            Process[] workApp = Process.GetProcessesByName("WPFDEMO");//get in a table all process named WPFDEMO          
 
             if(workApp.Length > 1) 
             { 
-                  foreach (Process process in workApp) 
-                    {
-                        process.Kill();            
-                    }
+                
+                Process process= workApp[1]; 
+                process.Kill(); 
+
             }                      
 
         }
