@@ -59,7 +59,6 @@ C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\Newton
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\Microsoft.WindowsAPICodePack.pdb
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\Microsoft.WindowsAPICodePack.xml
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\Newtonsoft.Json.xml
-C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.AssemblyReference.cache
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\View\View.g.cs
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\App.g.cs
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\GeneratedInternalTypeHelper.g.cs
