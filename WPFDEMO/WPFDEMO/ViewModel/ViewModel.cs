@@ -38,7 +38,6 @@ namespace WPFDEMO.ViewModel
             DifferentialSave = new RelayCommand(DifferentialSaveFunction);
             CompleteSave = new RelayCommand(CompleteSaveFunction);
             CryptingFunction = new RelayCommand(Crypting);;
-
         }
         private void Crypting()
         {
