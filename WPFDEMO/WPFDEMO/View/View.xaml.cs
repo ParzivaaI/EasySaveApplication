@@ -21,14 +21,10 @@ namespace WPFDEMO.View
     public partial class View : Window
     {
         public View()
-        {
-            
+        {           
             
             LoadProcess();
-
-            InitializeComponent();
-
-                       
+            InitializeComponent();                       
             
         }
         private void LoadProcess()
@@ -37,9 +33,18 @@ namespace WPFDEMO.View
 
             if(workApp.Length > 1) 
             { 
+                Window popup= new Window();
+                popup.Title = "Warning";
+                popup.Height= 200;
+                popup.Width= 750;
+                popup.FontSize= 15;
+                popup.Content = "Ceci est une application en mono-instance, vous ne pouvez pas l'ouvrir deux fois en même temps." + "\n" +
+                "This is a single-instance application, you cannot open it twice at the same time.";
+                popup.Show();;
                 
-                Process process= workApp[1]; 
-                process.Kill(); 
+                Process process = workApp[1]; 
+                process.Kill(); //Kill the process in the second cell of the table workApp.
+
 
             }                      
 
