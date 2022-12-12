@@ -60,3 +60,17 @@ D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO_MarkupComp
 D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO_MarkupCompile.lref
 D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.exe
 D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.pdb
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\bin\Debug\WPFDEMO.exe.config
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\bin\Debug\WPFDEMO.exe
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\bin\Debug\WPFDEMO.pdb
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\bin\Debug\Microsoft.WindowsAPICodePack.dll
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\bin\Debug\Newtonsoft.Json.dll
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\bin\Debug\Microsoft.WindowsAPICodePack.pdb
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\bin\Debug\Microsoft.WindowsAPICodePack.xml
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\bin\Debug\Newtonsoft.Json.xml
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\View\View.baml
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.g.resources
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.Properties.Resources.resources
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.GenerateResource.cache
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.CoreCompileInputs.cache
+D:\Utilitaires\Bureau\EasySave-True\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.CopyComplete

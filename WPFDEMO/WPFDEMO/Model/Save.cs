@@ -4,6 +4,7 @@ using System.IO;
 using System.Timers;
 using System.Text;
 using System.Threading;
+using System.Windows;
 using Timer = System.Timers.Timer;
 
 namespace WPFDEMO.Model
@@ -26,6 +27,9 @@ namespace WPFDEMO.Model
 
         /*string[] blacklistedApps = Model.GetBlackList();*/
 
+        Mutex myMutex;
+
+       
         public Save()
         {
             Name = "EasySaved";
