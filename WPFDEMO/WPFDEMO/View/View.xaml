@@ -18,7 +18,6 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -27,7 +26,7 @@
                 Height="26" Margin="10,22,0,0" 
                 Grid.Row="1" 
                 TextWrapping="Wrap" 
-                Text="{Binding CurrentModele.name}" 
+                Text="{Binding CurrentModele.name, Mode=TwoWay}" 
                 VerticalAlignment="Top"
                 Width="499"
                      />
@@ -47,7 +46,6 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Command="{Binding MajusculeCommand}" Grid.Row="6" Content="Sauvegarde Differentielle"/>
 
             <TextBlock HorizontalAlignment="Left" 
                Grid.Row="0"
@@ -94,7 +92,7 @@
                 Height="24" 
                 Margin="10,28.4,0,0" 
                 Grid.Row="2"
-                Text="{Binding CurrentModele.pathToCopy}" 
+                Text="{Binding CurrentModele.pathToCopy,Mode=TwoWay}" 
                 TextWrapping="Wrap"
                 VerticalAlignment="Top" 
                 Width="499" 
@@ -117,7 +115,7 @@
                 Margin="10,32.8,0,0" 
                 Grid.Row="3" 
                 TextWrapping="Wrap"
-                Text="{Binding CurrentModele.pathToPaste}" 
+                Text="{Binding CurrentModele.pathToPaste,Mode=TwoWay}" 
                 VerticalAlignment="Top" 
                 Width="499"
                      />
@@ -133,6 +131,7 @@
                 FontSize="20"
                 IsEnabled="False" Grid.RowSpan="2"><Run Text="Add the Folder"/><Run Text=" target"/><Run Text=" :"/></TextBlock>
             <CheckBox Content="Cryptage" HorizontalAlignment="Left" Margin="631,13,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="113"
+                IsChecked="{Binding Path=CryptingFunction, Mode=TwoWay}"     
                 Foreground="White" 
                 FontSize="22" 
                 FontFamily="Yu Gothic UI Semibold"  

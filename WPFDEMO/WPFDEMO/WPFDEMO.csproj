@@ -69,6 +69,7 @@
     <Compile Include="Model\Logger.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Save.cs" />
+    <Compile Include="Remote\Server.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\View.xaml.cs">

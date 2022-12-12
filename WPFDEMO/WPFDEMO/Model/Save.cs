@@ -9,6 +9,8 @@ namespace WPFDEMO.Model
 {
     public class Save
     {
+        //public delegate void SaveChange(StateFunction state);
+        string maxsize;
         string name;
         string copyDirectory;
         string pasteDirectory;
@@ -17,27 +19,41 @@ namespace WPFDEMO.Model
         public static int TimeCounter = 0;
         public static Timer timer = new Timer(500);
 
+/*        public SaveChange SaveChangeEvent;
+        public void AddSaveEvent(SaveChange listener)
+        {
+
+        }*/
+
         public int LeftToTransfer { get => leftToTransfer; set => leftToTransfer = value; }
         public string PasteDirectory { get => pasteDirectory; set => pasteDirectory = value; }
         public string Name { get => name; set => name = value; }
         public string CopyDirectory { get => copyDirectory; set => copyDirectory = value; }
         public string SaveCompleted { get => saveCompleted; set => saveCompleted = value; }
+        public string Maxsize { get => maxsize; set => maxsize = value; }
 
         /*string[] blacklistedApps = Model.GetBlackList();*/
 
         public Save()
         {
-            Name = "EasySaved";
+            Name = "EasySaved"; //Initialisation de Save avec des données de départ
             CopyDirectory = @"C:\";
             PasteDirectory = @"C:\Program Files";
             SaveCompleted = "Complete";
         }
         public void Variables(string Name, string CopyDirectory, string PasteDirectory, int LeftToTransfer)
         {
-            name = Name;
+            name = Name; //Initialisation des variables avec les valeurs de départ voulues
             copyDirectory = CopyDirectory;
             pasteDirectory = PasteDirectory;
             leftToTransfer = LeftToTransfer;
+        }
+        public void CryptingDatas()
+        {
+            var date = DateTime.Now; //Mettre la date du jour
+            long totalFileSize = 0; //Initialiser la taille totale du fichier
+            string Tempdirectory = PasteDirectory;
+            PasteDirectory += @"\";
         }
         public void CompleteSave()
         {
@@ -64,9 +80,11 @@ namespace WPFDEMO.Model
             }
             foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
             {
+                //ajouter ici si file de taille superieure à variable de taille, refuser copie
+                //if(File.Length>maxsize)
                 bool stateIsActive;
                 File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
-                LeftToTransfer--;
+                LeftToTransfer--; //On décrémente le nombre de fichiers restant à copier
                 TimeCounter++;
                 totalFileSize = newPath.Length;
                 if (LeftToTransfer >= 0)
