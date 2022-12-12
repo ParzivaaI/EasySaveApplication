@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Microsoft.Win32;
 using WPFDEMO.Commands;
 using System.Diagnostics;
+using GalaSoft.MvvmLight;
 
 namespace WPFDEMO.Model
 {

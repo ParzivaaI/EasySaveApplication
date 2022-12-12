@@ -12,44 +12,9 @@
     <Border Background="#FF2A2651"
             CornerRadius="35">
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="75"/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBox HorizontalAlignment="Left"
-                Height="26" Margin="10,22,0,0"
-                Grid.Row="1"
-                TextWrapping="Wrap"
-                Text="{Binding CurrentModele.name, Mode=TwoWay}"
-                VerticalAlignment="Top"
-                Width="499"
-                     />
-            <Button Command="{Binding CompleteSave}" Grid.Row="4" Content="Sauvegarde complete" FontSize="20" FontFamily="Rockwell Extra Bold" Foreground="#FFF9C927" BorderBrush="{x:Null}">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF0B1F3C" Offset="0"/>
-                        <GradientStop Color="#FF305F99" Offset="0.704"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button Command="{Binding DifferentialSave}" Grid.Row="5" Content="Sauvegarde Différentielle" FontSize="20" FontFamily="Rockwell Extra Bold" Foreground="#FFF9C927" BorderBrush="{x:Null}">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF0B1F3C" Offset="0"/>
-                        <GradientStop Color="#FF305F99" Offset="0.704"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
 
             <Grid.RowDefinitions>
-                <RowDefinition
+                <RowDefinition 
                     Height="75"/>
 
                 <RowDefinition/>
@@ -64,7 +29,7 @@
 
             </Grid.ColumnDefinitions>
 
-            <RadioButton
+            <RadioButton 
                 Command="{Binding English}"
                 Content="English"
                 Margin="768,10,10,0" 
@@ -109,7 +74,7 @@
                      
                      />
             <TextBlock HorizontalAlignment="Left"
-                       Margin="124,123,0,0"
+                       Margin="124,123,0,0" 
                        Grid.Row="1"
                        TextWrapping="Wrap"
                        Text="{Binding CurrentLangues.folderCopy}"
@@ -122,11 +87,11 @@
                        IsEnabled="False"
                        />
             <TextBox
-                     Text="{Binding CurrentModele.pathToPaste,,Mode=TwoWay}"
-                     x:Name="DestinationFilePath" HorizontalAlignment="Left"
-                     Height="24"
-                     Margin="124,266,0,0"
-                     Grid.Row="1"
+                     Text="{Binding CurrentModele.pathToPaste}" 
+                     x:Name="DestinationFilePath" HorizontalAlignment="Left" 
+                     Height="24" 
+                     Margin="124,266,0,0" 
+                     Grid.Row="1" 
                      TextWrapping="Wrap"
                      VerticalAlignment="Top" 
                      Width="499"
@@ -135,8 +100,8 @@
                        Text="{Binding CurrentLangues.folderPast}"
                        HorizontalAlignment="Left"
                        Margin="124,228,0,0"
-                       Grid.Row="1"
-                       TextWrapping="Wrap"
+                       Grid.Row="1" 
+                       TextWrapping="Wrap" 
                        VerticalAlignment="Top"
                        Height="33"
                        Width="499" 
@@ -162,7 +127,7 @@
             <Button Command="{Binding Save}"
                     Content="{Binding CurrentLangues.saveComplete}"
                     HorizontalAlignment="Left"
-                    Margin="98,358,0,0"
+                    Margin="98,358,0,0" 
                     Grid.Row="1"
                     VerticalAlignment="Top"
                     Width="274"
@@ -187,9 +152,9 @@
             <TextBox 
                     Text="{Binding CurrentModele.name}" 
                     HorizontalAlignment="Left"
-                     Height="26" Margin="124,48,0,0"
-                     Grid.Row="1"
-                     TextWrapping="Wrap"
+                     Height="26" Margin="124,48,0,0" 
+                     Grid.Row="1" 
+                     TextWrapping="Wrap" 
                      VerticalAlignment="Top"
                      Width="499" 
                     
@@ -197,12 +162,12 @@
             <TextBlock
                        Text="{Binding CurrentLangues.savename}"
                        HorizontalAlignment="Left"
-                       Margin="124,10,0,0"
-                       Grid.Row="1"
-                       TextWrapping="Wrap"
-                       VerticalAlignment="Top"
-                       Height="33"
-                       Width="499"
+                       Margin="124,10,0,0" 
+                       Grid.Row="1" 
+                       TextWrapping="Wrap" 
+                       VerticalAlignment="Top" 
+                       Height="33" 
+                       Width="499" 
                        FontFamily="Yu Gothic UI Semibold"
                        Foreground="White"
                        FontSize="24"
@@ -211,7 +176,7 @@
                 Command="{Binding MinusculeCommand}"
                 Content="{Binding CurrentLangues.saveDifferential}"
                 HorizontalAlignment="Left"
-                Margin="484,358,0,0"
+                Margin="484,358,0,0" 
                 Grid.Row="1"
                 VerticalAlignment="Top"
                 Width="279"
@@ -233,12 +198,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <CheckBox Content="Cryptage" HorizontalAlignment="Left" Margin="631,13,0,0" Grid.Row="1" VerticalAlignment="Top" Height="26" Width="113"
-                IsChecked="{Binding Path=CryptingFunction, Mode=TwoWay}"
-                Foreground="White"
-                FontSize="22"
-                FontFamily="Yu Gothic UI Semibold"
-                Background="White" />
+
         </Grid>
 
     </Border>

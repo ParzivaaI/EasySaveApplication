@@ -56,7 +56,7 @@ namespace WPFDEMO.ViewModel
             {
                 if(CurrentModele.BlacklistedPrograms()) //On verifie si un programme de la blacklist est actif
                 {
-                currentModele.Completesave(); //Si non, on fait la sauvegarde et met a jour le modèle
+                currentModele.completesave(); //Si non, on fait la sauvegarde et met a jour le modèle
                 CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
                 }
             }
