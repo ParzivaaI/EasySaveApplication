@@ -48,12 +48,12 @@ namespace WPFDEMO.Model
             pasteDirectory = PasteDirectory;
             leftToTransfer = LeftToTransfer;
         }
-        public void CryptingDatas()
+        public void CryptingData()
         {
             var date = DateTime.Now; //Mettre la date du jour
             long totalFileSize = 0; //Initialiser la taille totale du fichier
-            string Tempdirectory = PasteDirectory;
-            PasteDirectory += @"\";
+            string Tempdirectory=pasteDirectory;
+            pasteDirectory += @"\";
         }
         public void CompleteSave()
         {

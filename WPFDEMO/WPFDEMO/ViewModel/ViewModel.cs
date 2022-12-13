@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WPFDEMO.Model;
+using WPFDEMO.Commands;
 
 namespace WPFDEMO.ViewModel
 {

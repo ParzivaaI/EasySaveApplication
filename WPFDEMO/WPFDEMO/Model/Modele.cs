@@ -24,7 +24,7 @@ namespace WPFDEMO.Model
             this.leftToTransfer = 1;
             //BannedProgramms.Black_list();
         }
-        BlackList BannedProgramms = new BlackList(); //Initialisation de la blacklist
+        BannedProgramm BlockSoftware = new BannedProgramm(); //Initialisation de la blacklist
         public String name { get; set; }
         public String pathToCopy { get; set; }
         public String pathToPaste { get; set; }
