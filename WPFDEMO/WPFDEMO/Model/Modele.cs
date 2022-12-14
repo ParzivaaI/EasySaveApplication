@@ -40,5 +40,11 @@ namespace WPFDEMO.Model
             RunningSave.Variables(name,pathToCopy,pathToPaste, leftToTransfer);
             RunningSave.CompleteSave();
         }
+        public bool BlacklistedPrograms()
+        {
+            //foreach(BannedProgramms.Black_list in process.) //Verifier parmi les processus en cours si un programme de la blacklist est présent
+            return true;
+        }
+
     }
 }
