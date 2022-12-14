@@ -1,5 +1,5 @@
 {
-    "Banned": "calculator.exe",
+    "BannedApps": "calculator.exe",
     "MaxSize": "",
     "PriorityFile": "",
     "CryptingKey": ""

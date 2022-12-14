@@ -18,7 +18,7 @@ namespace WPFDEMO.Model
         public string Data;
         ConfigFileJson configFileJson;
         public string[] bannedProcesses;
-        public string configfilepath = Path.GetFullPath(@"Config\config.json");
+        public string configfilepath = Path.GetFullPath(@"Ressources\config.json");
         public ConfigFile()
         {   
             Directory.CreateDirectory(Path.GetFullPath(@"Config"));
@@ -43,16 +43,13 @@ namespace WPFDEMO.Model
             bannedProcesses = GetBannedProcesses();
         }
         public string GenerateCryptoKey()
-        {
-            // Generate a random string of 64 bit 
+        { 
             StringBuilder strbuilder = new StringBuilder();
             Random random = new Random();
 
             for (int i = 0; i < 64; i++)
             {
-                // Generate floating point numbers
                 double myFloat = random.NextDouble();
-                // Generate the char using below logic
                 var myChar = Convert.ToChar(Convert.ToInt32(Math.Floor(25 * myFloat) + 65));
                 strbuilder.Append(myChar);
             }
@@ -78,16 +75,16 @@ namespace WPFDEMO.Model
 
             switch (element)
             {
-                case "FileMaxSize":
+                case "MaxSize":
                     element = configFileJson.fileMaxSize;
                     break;
-                case "CryptoKey":
+                case "CryptingKey":
                     element = configFileJson.cryptoKey;
                     break;
                 case "CryptedExtensions":
                     element = configFileJson.cryptedExtensions;
                     break;
-                case "WorkSoftware":
+                case "BannedApps":
                     element = configFileJson.workSoftware;
                     break;
                 case "PriorityExtensions":
