@@ -54,13 +54,13 @@ namespace WPFDEMO.ViewModel
         {
             try
             {
-                if(CurrentModele.BlacklistedPrograms()) //On verifie si un programme de la blacklist est actif
+                if (CurrentModele.BlacklistedPrograms()) //On verifie si un programme de la blacklist est actif
                 {
-                currentModele.completesave(); //Si non, on fait la sauvegarde et met a jour le modèle
-                CurrentModele = new Modele(currentModele.name,currentModele.pathToCopy, currentModele.pathToPaste,0);
+                    currentModele.completesave(); //Si non, on fait la sauvegarde et met a jour le modèle
+                    CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToPaste, 0);
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
             }
         }
