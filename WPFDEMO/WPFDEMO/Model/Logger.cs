@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml.Serialization;
 
 namespace WPFDEMO.Model
 
@@ -11,10 +12,10 @@ namespace WPFDEMO.Model
         public string FileSource { get; set; }
         public string FileTarget { get; set; }
         public long FileSize { get; set; }
-        public DateTimeOffset Time { get; set; }
+        public string Time { get; set; }
 
         //define log 
-        public string CurrentDirectory
+        private string CurrentDirectory
         {
             get;
             set;
@@ -22,14 +23,29 @@ namespace WPFDEMO.Model
 
         //...
 
-        public String FileName
+        private String FileName
         {
             //File Name
             get;
             set;
         }
 
-        public string FilePath
+        private string FilePath
+        {
+            get;
+            set;
+        }
+
+        //...
+
+        private string FileName2
+        {
+            //File Name
+            get;
+            set;
+        }
+
+        private string FilePath2
         {
             get;
             set;
@@ -39,16 +55,30 @@ namespace WPFDEMO.Model
         {
             // Create a JSON files in the project folder
             string workingDirectory = Environment.CurrentDirectory;
-            this.CurrentDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName;
+            this.CurrentDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             this.FileName = DateTime.Now.ToString("dd-MM-yyyy") + ".json";
-            this.FilePath = this.CurrentDirectory + "/" + this.FileName;
+            this.FilePath = CurrentDirectory + "/" + this.FileName;
+            // Create a XML files in the project folder
+            this.FileName2 = DateTime.Now.ToString("dd-MM-yyyy") + ".xml";
+            this.FilePath2 = CurrentDirectory + "/" + FileName2;
+
         }
+
 
         public void SaveLog(string message)
         {
-            using (System.IO.StreamWriter w = System.IO.File.AppendText(this.FilePath))
+            using (System.IO.StreamWriter w = System.IO.File.AppendText(FilePath))
             {
                 w.Write("{0} \n", message);
+            }
+
+        }
+        public void XMLSerialize()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Logger));
+            using (TextWriter writer = new StreamWriter(FilePath2))
+            {
+                serializer.Serialize(writer, this);
             }
         }
     }

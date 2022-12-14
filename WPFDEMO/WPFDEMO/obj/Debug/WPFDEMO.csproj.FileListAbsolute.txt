@@ -1,56 +1,3 @@
-D:\david\programs\Visual Studio\WPFDEMO\bin\Debug\WPFDEMO.exe.config
-D:\david\programs\Visual Studio\WPFDEMO\bin\Debug\WPFDEMO.exe
-D:\david\programs\Visual Studio\WPFDEMO\bin\Debug\WPFDEMO.pdb
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\View\View.g.cs
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\App.g.cs
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\GeneratedInternalTypeHelper.g.cs
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\WPFDEMO_MarkupCompile.cache
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\WPFDEMO_MarkupCompile.lref
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\View\View.baml
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\WPFDEMO.g.resources
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\WPFDEMO.Properties.Resources.resources
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\WPFDEMO.csproj.GenerateResource.cache
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\WPFDEMO.exe
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\WPFDEMO.pdb
-D:\david\programs\Visual Studio\WPFDEMO\obj\Debug\WPFDEMO.csprojAssemblyReference.cache
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\bin\Debug\WPFDEMO.exe.config
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\bin\Debug\WPFDEMO.exe
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\bin\Debug\WPFDEMO.pdb
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\WPFDEMO.csproj.AssemblyReference.cache
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\View\View.g.cs
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\App.g.cs
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\WPFDEMO_MarkupCompile.cache
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\WPFDEMO_MarkupCompile.lref
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\View\View.baml
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\WPFDEMO.g.resources
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\WPFDEMO.Properties.Resources.resources
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\WPFDEMO.csproj.GenerateResource.cache
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\WPFDEMO.csproj.CoreCompileInputs.cache
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\WPFDEMO.exe
-C:\Users\rzakaria\Downloads\MVVM_DEMO_1-master\MVVM_DEMO_1-master\WPFDEMO\obj\Debug\WPFDEMO.pdb
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\View\View.g.cs
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\App.g.cs
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO_MarkupCompile.cache
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO_MarkupCompile.lref
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\bin\Debug\WPFDEMO.exe.config
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\bin\Debug\WPFDEMO.exe
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\bin\Debug\WPFDEMO.pdb
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\bin\Debug\Microsoft.WindowsAPICodePack.dll
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\bin\Debug\Newtonsoft.Json.dll
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\bin\Debug\Microsoft.WindowsAPICodePack.pdb
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\bin\Debug\Microsoft.WindowsAPICodePack.xml
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\bin\Debug\Newtonsoft.Json.xml
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\View\View.baml
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.g.resources
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.Properties.Resources.resources
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.GenerateResource.cache
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.CoreCompileInputs.cache
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.CopyComplete
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.exe
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.pdb
-C:\Users\valen\Downloads\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.AssemblyReference.cache
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\WPFDEMO.exe.config
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\WPFDEMO.exe
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\WPFDEMO.pdb
@@ -61,6 +8,7 @@ C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\GalaSo
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\Microsoft.WindowsAPICodePack.dll
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\Newtonsoft.Json.dll
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\XAct.Core.PCL.dll
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\GalaSoft.MvvmLight.pdb
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\GalaSoft.MvvmLight.xml
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
@@ -72,6 +20,7 @@ C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\Micros
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\bin\Debug\Newtonsoft.Json.xml
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\View\View.g.cs
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\App.g.cs
+C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO_Content.g.cs
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO_MarkupCompile.cache
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO_MarkupCompile.lref
@@ -83,4 +32,3 @@ C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEM
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.CopyComplete
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.exe
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.pdb
-C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO_Content.g.cs

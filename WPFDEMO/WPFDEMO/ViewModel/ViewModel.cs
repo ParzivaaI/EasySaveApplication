@@ -65,7 +65,7 @@ namespace WPFDEMO.ViewModel
         }
         private void Addfrench()
         {
-            CurrentLangues = new Langues("Ajouter un nom à la sauvgarde :", "Ajouter le chemin d'accès du dossier :", "Ajouter le dossier de déstination :", "Sauvgarde Complete", "Sauvgarde Differentialle");
+            CurrentLangues = new Langues("Ajouter un nom à la sauvegarde :", "Ajouter le chemin d'accès du dossier :", "Ajouter le dossier de déstination :", "Sauvegarde Complete", "Sauvegarde Differentialle");
         }
     }
 }
