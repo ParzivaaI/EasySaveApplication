@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Windows;
+using GalaSoft.MvvmLight;
 
 namespace WPFDEMO.Model
 {
@@ -16,24 +16,13 @@ namespace WPFDEMO.Model
         public BannedProgramm()
         {
             proclist = ProcessList();
-            bannedprogramms = Ban();
         }
         public string[] proclist;
-
-        private string bannedprogramms;
 
         /// <summary>
         /// Runs through processes and adds the process name and id to a list.
         /// </summary>
         /// <returns>Full process list</returns>
-        ///
-        public string Ban()
-        {
-            string json = File.ReadAllText(Environment.CurrentDirectory+@"..\..\..\Ressources\Config.json");
-            Dictionary<string, string> setting = JsonConvert.DeserializeObject< Dictionary<string, string>>(json);
-            Application.Current.Properties["Banned"] = setting["Banned"];
-            return json;
-        }
         public string[] ProcessList()
         {
             Process[] processes = Process.GetProcesses();

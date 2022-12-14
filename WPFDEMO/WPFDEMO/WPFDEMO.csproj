@@ -88,8 +88,6 @@
     <Compile Include="Model\Logger.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Save.cs" />
-    <Compile Include="Remote\Server.cs" />
-    <Compile Include="ViewModel\RelayCommand - Copier.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\View.xaml.cs">
@@ -120,7 +118,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Ressources\Config.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

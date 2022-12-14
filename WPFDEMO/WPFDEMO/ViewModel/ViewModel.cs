@@ -4,7 +4,6 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using WPFDEMO.Commands;
 using WPFDEMO.Model;
-using WPFDEMO.Commands;
 
 namespace WPFDEMO.ViewModel
 {
