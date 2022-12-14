@@ -2,5 +2,6 @@
     "BannedApps": "calculator.exe",
     "MaxSize": "",
     "PriorityFile": "",
+    "CryptExtension": "",
     "CryptingKey": ""
 }
