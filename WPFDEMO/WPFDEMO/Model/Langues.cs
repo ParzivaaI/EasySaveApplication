@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WPFDEMO.Model
 {
@@ -16,11 +12,11 @@ namespace WPFDEMO.Model
             this.saveComplete = saveComplete;
             this.saveDifferential = saveDifferential;
         }
-        public String savename { get; set; }
-        public String folderPast { get; set; }
-        public String folderCopy { get; set; }
-        public String saveComplete { get; set; }
-        public String saveDifferential { get; set; }
+        public string savename { get; set; }
+        public string folderPast { get; set; }
+        public string folderCopy { get; set; }
+        public string saveComplete { get; set; }
+        public string saveDifferential { get; set; }
 
         public Langues()
         {

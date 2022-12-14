@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Timers;
 using System.Text;
+using System.Windows;
 
 namespace WPFDEMO.Model
 {
@@ -46,7 +47,7 @@ namespace WPFDEMO.Model
             timer.AutoReset = true;
             timer.Start();
             TimeCounter++;
-            var date = DateTime.Now; //Mettre date du jour
+            string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK"); //Mettre date du jour
             long totalFileSize = 0; //Initialiser la taille totale du fichier
             pasteDirectory += @"\" + name;
             //créer la state
@@ -54,6 +55,7 @@ namespace WPFDEMO.Model
             //créer les dossiers
             foreach (string dirPath in Directory.GetDirectories(copyDirectory, "*", SearchOption.AllDirectories))
             {
+                MessageBox.Show("test");
                 Directory.CreateDirectory(dirPath.Replace(copyDirectory, pasteDirectory)); //créer le dossier dans la nouvelle sauvegarde pour chaque dossier existant
             }
             //Copying all the files, replace if same name
@@ -84,12 +86,12 @@ namespace WPFDEMO.Model
                 FileSource = copyDirectory,
                 FileTarget = pasteDirectory,
                 FileSize = totalFileSize,
-                Time = date
+                Time = date,
             };
             string jsonString = JsonConvert.SerializeObject(logger);
+            logger.XMLSerialize();
             logger.SaveLog(jsonString);
-
-        }
+            }   
         public void DiffSave()
         {
             SaveCompleted = "Differential";
@@ -131,7 +133,7 @@ namespace WPFDEMO.Model
                     ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
                 }
             }
-            var date = DateTime.Now;
+            string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK");
             var logger = new Logger
             {
                 FName = name,
@@ -161,17 +163,18 @@ namespace WPFDEMO.Model
             }
             return szOutStringBuild.ToString();
         }
-        /*        public void Encrypt(string sourceDir, string targetDir)//Fonction de cryptage
+    /*        public void Encrypt(string sourceDir, string targetDir)//Fonction de cryptage
+            {
+                using (Process process = new Process())//Création du process
                 {
-                    using (Process process = new Process())//Création du process
-                    {
-                        process.StartInfo.FileName = @"..\..\..\Ressources\CryptoSoft\CryptoSoft.exe"; //Calls the process that is CryptoSoft
-                        process.StartInfo.Arguments = String.Format("\"{0}\"", sourceDir) + " " + String.Format("\"{0}\"", targetDir); //Preparation of variables for the process.
-                        process.Start(); //Launching the process
-                        process.Close();
+                    process.StartInfo.FileName = @"..\..\..\Ressources\CryptoSoft\CryptoSoft.exe"; //Calls the process that is CryptoSoft
+                    process.StartInfo.Arguments = String.Format("\"{0}\"", sourceDir) + " " + String.Format("\"{0}\"", targetDir); //Preparation of variables for the process.
+                    process.Start(); //Launching the process
+                    process.Close();
 
-                    }
+                }
 
-                }*/
+            }*/
     }
 }
+
