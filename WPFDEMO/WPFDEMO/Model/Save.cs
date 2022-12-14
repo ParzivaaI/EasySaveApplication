@@ -13,6 +13,7 @@ namespace WPFDEMO.Model
         string copyDirectory;
         string pasteDirectory;
         int leftToTransfer;
+        bool stateIsActive;
         string saveCompleted;
         public static int TimeCounter = 0;
         public static Timer timer = new Timer(500);
@@ -22,6 +23,7 @@ namespace WPFDEMO.Model
         public string Name { get => name; set => name = value; }
         public string CopyDirectory { get => copyDirectory; set => copyDirectory = value; }
         public string SaveCompleted { get => saveCompleted; set => saveCompleted = value; }
+        public bool StateIsActive { get => stateIsActive; set => stateIsActive = value; }
 
         /*string[] blacklistedApps = Model.GetBlackList();*/
 
@@ -38,6 +40,7 @@ namespace WPFDEMO.Model
             copyDirectory = CopyDirectory;
             pasteDirectory = PasteDirectory;
             leftToTransfer = LeftToTransfer;
+
         }
         public void CompleteSave()
         {
@@ -65,7 +68,7 @@ namespace WPFDEMO.Model
             }
             foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
             {
-                bool stateIsActive;
+
                 File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
                 LeftToTransfer--;
                 TimeCounter++;
@@ -78,8 +81,19 @@ namespace WPFDEMO.Model
                 {
                     stateIsActive = false;
                 }
-                ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
             }
+            var state = new StateFunction
+            {
+                FName = name,
+                FileSource = copyDirectory,
+                FileTarget = pasteDirectory,
+                FileSize = totalFileSize,
+                Time = date,
+                StateActive = stateIsActive,
+            };
+            string jsonstateString = JsonConvert.SerializeObject(state);
+            state.StateCreate(jsonstateString);
+
             var logger = new Logger
             {
                 FName = name,
@@ -91,7 +105,8 @@ namespace WPFDEMO.Model
             string jsonString = JsonConvert.SerializeObject(logger);
             logger.XMLSerialize();
             logger.SaveLog(jsonString);
-            }   
+        }   
+         
         public void DiffSave()
         {
             SaveCompleted = "Differential";
@@ -118,7 +133,7 @@ namespace WPFDEMO.Model
             {
                 if (File.GetLastAccessTime(newPath) > File.GetLastAccessTime(newPath.Replace(copyDirectory, pasteDirectory)))
                 {
-                    bool stateIsActive;
+                    
                     File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
                     LeftToTransfer--;
                     totalFileSize -= newPath.Length;
@@ -130,10 +145,21 @@ namespace WPFDEMO.Model
                     {
                         stateIsActive = false;
                     }
-                    ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
                 }
+
             }
             string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK");
+            var state = new StateFunction
+            {
+                FName = name,
+                FileSource = copyDirectory,
+                FileTarget = pasteDirectory,
+                FileSize = totalFileSize,
+                Time = date,
+                StateActive = stateIsActive,
+            };
+            string jsonstateString = JsonConvert.SerializeObject(state);
+            state.StateCreate(jsonstateString);
             var logger = new Logger
             {
                 FName = name,
@@ -144,6 +170,8 @@ namespace WPFDEMO.Model
             };
             string jsonString = JsonConvert.SerializeObject(logger);
             logger.SaveLog(jsonString);
+            
+
         }
     
         void SaveTimer(object sender, ElapsedEventArgs e)
