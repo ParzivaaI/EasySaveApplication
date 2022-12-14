@@ -57,7 +57,7 @@ namespace WPFDEMO.Model
             string workingDirectory = Environment.CurrentDirectory;
             this.CurrentDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
             this.FileName = DateTime.Now.ToString("dd-MM-yyyy") + ".json";
-            this.FilePath = CurrentDirectory + "/" + this.FileName;
+            this.FilePath = CurrentDirectory + "/" + FileName;
             // Create a XML files in the project folder
             this.FileName2 = DateTime.Now.ToString("dd-MM-yyyy") + ".xml";
             this.FilePath2 = CurrentDirectory + "/" + FileName2;
