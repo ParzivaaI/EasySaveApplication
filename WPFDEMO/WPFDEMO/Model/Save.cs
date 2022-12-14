@@ -40,8 +40,14 @@ namespace WPFDEMO.Model
             copyDirectory = CopyDirectory;
             pasteDirectory = PasteDirectory;
             leftToTransfer = LeftToTransfer;
-
-        }
+          }
+          public void CryptingData()
+          {
+              var date = DateTime.Now; //Mettre la date du jour
+              long totalFileSize = 0; //Initialiser la taille totale du fichier
+              string Tempdirectory=pasteDirectory;
+              pasteDirectory += @"\";
+          }
         public void CompleteSave()
         {
             //Demarrer le timer
@@ -105,8 +111,8 @@ namespace WPFDEMO.Model
             string jsonString = JsonConvert.SerializeObject(logger);
             logger.XMLSerialize();
             logger.SaveLog(jsonString);
-        }   
-         
+        }
+
         public void DiffSave()
         {
             SaveCompleted = "Differential";
@@ -133,7 +139,7 @@ namespace WPFDEMO.Model
             {
                 if (File.GetLastAccessTime(newPath) > File.GetLastAccessTime(newPath.Replace(copyDirectory, pasteDirectory)))
                 {
-                    
+
                     File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
                     LeftToTransfer--;
                     totalFileSize -= newPath.Length;
@@ -170,10 +176,10 @@ namespace WPFDEMO.Model
             };
             string jsonString = JsonConvert.SerializeObject(logger);
             logger.SaveLog(jsonString);
-            
+
 
         }
-    
+
         void SaveTimer(object sender, ElapsedEventArgs e)
         {
             TimeCounter++;
@@ -205,4 +211,3 @@ namespace WPFDEMO.Model
             }*/
     }
 }
-

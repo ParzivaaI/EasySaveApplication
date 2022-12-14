@@ -18,6 +18,7 @@ namespace WPFDEMO.Model
             this.pathToPaste = @"C:\Program Files (x86)";
             this.leftToTransfer = 1;
         }
+        BannedProgramm BlockSoftware = new BannedProgramm(); //Initialisation de la blacklist
         public String name { get; set; }
         public String pathToCopy { get; set; }
         public String pathToPaste { get; set; }
