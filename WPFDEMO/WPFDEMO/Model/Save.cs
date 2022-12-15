@@ -3,12 +3,16 @@ using System;
 using System.IO;
 using System.Timers;
 using System.Text;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 
 namespace WPFDEMO.Model
 {
     public class Save
     {
+        //public delegate void SaveChange(StateFunction state);
+        long maxsize;
         string name;
         string copyDirectory;
         string pasteDirectory;
@@ -23,16 +27,16 @@ namespace WPFDEMO.Model
         public string Name { get => name; set => name = value; }
         public string CopyDirectory { get => copyDirectory; set => copyDirectory = value; }
         public string SaveCompleted { get => saveCompleted; set => saveCompleted = value; }
+        public long Maxsize { get => maxsize; set => maxsize = value; }
         public bool StateIsActive { get => stateIsActive; set => stateIsActive = value; }
-
         /*string[] blacklistedApps = Model.GetBlackList();*/
-
         public Save()
         {
             Name = "EasySaved";
             CopyDirectory = @"C:\";
             PasteDirectory = @"C:\Program Files";
             SaveCompleted = "Complete";
+            Maxsize = 1000000;
         }
         public void Variables(string Name, string CopyDirectory, string PasteDirectory, int LeftToTransfer)
         {
@@ -40,7 +44,18 @@ namespace WPFDEMO.Model
             copyDirectory = CopyDirectory;
             pasteDirectory = PasteDirectory;
             leftToTransfer = LeftToTransfer;
-
+        }
+        public void CryptingData()
+        {
+            var date = DateTime.Now; //Mettre la date du jour
+            long totalFileSize = 0; //Initialiser la taille totale du fichier
+            pasteDirectory += @"\";
+            Process process = new Process();
+            process.StartInfo.FileName=@"../../../Cryptosoft/Cryptosoft.exe";
+            process.StartInfo.Arguments=copyDirectory;       // copy
+            process.StartInfo.Arguments += pasteDirectory;  // paste path
+            process.Start();
+            process.WaitForExit();
         }
         public void CompleteSave()
         {
@@ -73,13 +88,32 @@ namespace WPFDEMO.Model
                 LeftToTransfer--;
                 TimeCounter++;
                 totalFileSize = newPath.Length;
-                if (LeftToTransfer >= 0)
+                //ajouter ici si file de taille superieure à variable de taille, refuser copie
+                long length = new System.IO.FileInfo(newPath).Length;
+                if (length>maxsize)
                 {
-                    stateIsActive = true;
+                  if (LeftToTransfer >= 0)
+                  {
+                      //CryptingData(); crypting the file
+                      bool stateIsActive;
+                      File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
+                      LeftToTransfer--; //On décrémente le nombre de fichiers restant à copier
+                      TimeCounter++;
+                      totalFileSize = newPath.Length;
+                      if (LeftToTransfer >= 0)
+                      {
+                          stateIsActive = true;
+                      }
+                      else
+                      {
+                          stateIsActive = false;
+                      }
+                    ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
+                  }
                 }
                 else
                 {
-                    stateIsActive = false;
+                  leftToTransfer--;
                 }
             }
             var state = new StateFunction
@@ -105,8 +139,8 @@ namespace WPFDEMO.Model
             string jsonString = JsonConvert.SerializeObject(logger);
             logger.XMLSerialize();
             logger.SaveLog(jsonString);
-        }   
-         
+        }
+
         public void DiffSave()
         {
             SaveCompleted = "Differential";
@@ -133,7 +167,7 @@ namespace WPFDEMO.Model
             {
                 if (File.GetLastAccessTime(newPath) > File.GetLastAccessTime(newPath.Replace(copyDirectory, pasteDirectory)))
                 {
-                    
+
                     File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
                     LeftToTransfer--;
                     totalFileSize -= newPath.Length;
@@ -170,10 +204,10 @@ namespace WPFDEMO.Model
             };
             string jsonString = JsonConvert.SerializeObject(logger);
             logger.SaveLog(jsonString);
-            
+
 
         }
-    
+
         void SaveTimer(object sender, ElapsedEventArgs e)
         {
             TimeCounter++;
@@ -205,4 +239,3 @@ namespace WPFDEMO.Model
             }*/
     }
 }
-

@@ -1,5 +1,8 @@
 ﻿using System;
+using System.IO;
+using Newtonsoft.Json;
 using System.Collections.Generic;
+using WPFDEMO.Commands;
 using System.Diagnostics;
 using GalaSoft.MvvmLight;
 
@@ -18,11 +21,14 @@ namespace WPFDEMO.Model
             proclist = ProcessList();
         }
         public string[] proclist;
-
-        /// <summary>
-        /// Runs through processes and adds the process name and id to a list.
-        /// </summary>
-        /// <returns>Full process list</returns>
+        private string bannedprogramms;
+        public string Ban()
+        {
+            string json = File.ReadAllText(Environment.CurrentDirectory+@"..\..\..\Ressources\Config.json");
+            Dictionary<string, string> setting = JsonConvert.DeserializeObject< Dictionary<string, string>>(json);
+            Application.Current.Properties["BannedApps"] = setting["BannedApps"];
+            return json;
+        }
         public string[] ProcessList()
         {
             Process[] processes = Process.GetProcesses();
