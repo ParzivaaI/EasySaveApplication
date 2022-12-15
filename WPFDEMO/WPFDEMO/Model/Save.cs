@@ -49,140 +49,164 @@ namespace WPFDEMO.Model
             long totalFileSize = 0; //Initialiser la taille totale du fichier
             pasteDirectory += @"\";
             Process process = new Process();
-            process.StartInfo.FileName=@"../../../Cryptosoft/Cryptosoft.exe";
-            process.StartInfo.Arguments=copyDirectory;       // copy
+            process.StartInfo.FileName = @"../Cryptosoft/Cryptosoft.exe";
+            process.StartInfo.Arguments = copyDirectory;       // copy
             process.StartInfo.Arguments += pasteDirectory;  // paste path
-            process.Start();
-            process.WaitForExit();
+            /*process.Start();
+            process.WaitForExit();*/
         }
         public void CompleteSave()
         {
-            //Demarrer le timer
-            timer.Elapsed += SaveTimer;
-            timer.Enabled = true;
-            timer.AutoReset = true;
-            timer.Start();
-            TimeCounter++;
-            string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK"); //Mettre date du jour
-            long totalFileSize = 0; //Initialiser la taille totale du fichier
-            pasteDirectory += @"\" + name;
-            //créer la state
-            StateFunction ObjStateFunction = new StateFunction();
-            //créer les dossiers
-            foreach (string dirPath in Directory.GetDirectories(copyDirectory, "*", SearchOption.AllDirectories))
+            if (LogicielMetier())
             {
-                MessageBox.Show("test");
-                Directory.CreateDirectory(dirPath.Replace(copyDirectory, pasteDirectory)); //créer le dossier dans la nouvelle sauvegarde pour chaque dossier existant
+                Window popup = new Window();
+                popup.Title = "Warning";
+                popup.Height = 200;
+                popup.Width = 750;
+                popup.FontSize = 15;
+                popup.Content = "Impossible d'effectuer la sauvegarde, logiciel metier detecté";
+                popup.Show(); ;
             }
-            //Copying all the files, replace if same name
-            foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
+            else
             {
-                totalFileSize += newPath.Length;
-            }
-            foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
-            {
-
-                File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
-                LeftToTransfer--;
+                //Demarrer le timer
+                timer.Elapsed += SaveTimer;
+                timer.Enabled = true;
+                timer.AutoReset = true;
+                timer.Start();
                 TimeCounter++;
-                totalFileSize = newPath.Length;
-                //ajouter ici si file de taille superieure à variable de taille, refuser copie
-                long length = new System.IO.FileInfo(newPath).Length;
-                if (length>maxsize)
+                string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK"); //Mettre date du jour
+                long totalFileSize = 0; //Initialiser la taille totale du fichier
+                pasteDirectory += @"\" + name;
+                //créer la state
+                StateFunction ObjStateFunction = new StateFunction();
+                //créer les dossiers
+                foreach (string dirPath in Directory.GetDirectories(copyDirectory, "*", SearchOption.AllDirectories))
                 {
-                  if (LeftToTransfer >= 0)
-                  {
-                      CryptingData(); //crypting the file
-                      bool stateIsActive;
-                      File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
-                      LeftToTransfer--; //On décrémente le nombre de fichiers restant à copier
-                      TimeCounter++;
-                      totalFileSize = newPath.Length;
-                      if (LeftToTransfer >= 0)
-                      {
-                          stateIsActive = true;
-                      }
-                      else
-                      {
-                          stateIsActive = false;
-                      }
-                    ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
-                  }
+                    MessageBox.Show("test");
+                    Directory.CreateDirectory(dirPath.Replace(copyDirectory, pasteDirectory)); //créer le dossier dans la nouvelle sauvegarde pour chaque dossier existant
                 }
-                else
+                //Copying all the files, replace if same name
+                foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
                 {
-                  leftToTransfer--;
+                    totalFileSize += newPath.Length;
                 }
-            }
+                foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
+                {
+                    CryptingData(); //crypting the file
+                    File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
+                    LeftToTransfer--;
+                    TimeCounter++;
+                    totalFileSize = newPath.Length;
+                    //ajouter ici si file de taille superieure à variable de taille, refuser copie
+                    long length = new System.IO.FileInfo(newPath).Length;
+                    if (length > maxsize)
+                    {
+                        if (LeftToTransfer >= 0)
+                        {
+                            bool stateIsActive;
+                            File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
+                            LeftToTransfer--; //On décrémente le nombre de fichiers restant à copier
+                            TimeCounter++;
+                            totalFileSize = newPath.Length;
+                            if (LeftToTransfer >= 0)
+                            {
+                                stateIsActive = true;
+                            }
+                            else
+                            {
+                                stateIsActive = false;
+                            }
+                            ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
+                        }
+                    }
+                    else
+                    {
+                        leftToTransfer--;
+                    }
+                }
 
-            var logger = new Logger
-            {
-                FName = name,
-                FileSource = copyDirectory,
-                FileTarget = pasteDirectory,
-                FileSize = totalFileSize,
-                Time = date,
-            };
-            string jsonString = JsonConvert.SerializeObject(logger);
-            logger.XMLSerialize();
-            logger.SaveLog(jsonString);
+                var logger = new Logger
+                {
+                    FName = name,
+                    FileSource = copyDirectory,
+                    FileTarget = pasteDirectory,
+                    FileSize = totalFileSize,
+                    Time = date,
+                };
+                string jsonString = JsonConvert.SerializeObject(logger);
+                logger.XMLSerialize();
+                logger.SaveLog(jsonString);
+            }
         }
 
         public void DiffSave()
         {
-            SaveCompleted = "Differential";
-            long totalFileSize = 0;
-            //Demarrer le timer
-            timer.Elapsed += SaveTimer;
-            timer.Enabled = true;
-            timer.AutoReset = true;
-            timer.Start();
-            TimeCounter++;
-            pasteDirectory += @"\" + name;
-            //Ajout du nom au path pour créer le dossier de sauvegarde
-            StateFunction ObjStateFunction = new StateFunction();
-            //créer les dossiers
-            foreach (string dirPath in Directory.GetDirectories(copyDirectory, "*", SearchOption.AllDirectories))
+            if (LogicielMetier())
             {
-                if (Directory.GetLastAccessTime(dirPath) > Directory.GetLastAccessTime(copyDirectory))
-                {
-                    Directory.CreateDirectory(dirPath.Replace(copyDirectory, pasteDirectory));
-                }
+                Window popup = new Window();
+                popup.Title = "Warning";
+                popup.Height = 200;
+                popup.Width = 750;
+                popup.FontSize = 15;
+                popup.Content = "Impossible d'effectuer la sauvegarde, logiciel metier detecté";
+                popup.Show(); ;
             }
-            //Copie les fichiers, remplace si nom identique
-            foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
+            else
             {
-                if (File.GetLastAccessTime(newPath) > File.GetLastAccessTime(newPath.Replace(copyDirectory, pasteDirectory)))
+                SaveCompleted = "Differential";
+                long totalFileSize = 0;
+                //Demarrer le timer
+                timer.Elapsed += SaveTimer;
+                timer.Enabled = true;
+                timer.AutoReset = true;
+                timer.Start();
+                TimeCounter++;
+                pasteDirectory += @"\" + name;
+                //Ajout du nom au path pour créer le dossier de sauvegarde
+                StateFunction ObjStateFunction = new StateFunction();
+                //créer les dossiers
+                foreach (string dirPath in Directory.GetDirectories(copyDirectory, "*", SearchOption.AllDirectories))
                 {
-
-                    File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
-                    LeftToTransfer--;
-                    totalFileSize -= newPath.Length;
-                    if (LeftToTransfer >= 0)
+                    if (Directory.GetLastAccessTime(dirPath) > Directory.GetLastAccessTime(copyDirectory))
                     {
-                        stateIsActive = true;
-                    }
-                    else
-                    {
-                        stateIsActive = false;
+                        Directory.CreateDirectory(dirPath.Replace(copyDirectory, pasteDirectory));
                     }
                 }
+                //Copie les fichiers, remplace si nom identique
+                foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
+                {
+                    if (File.GetLastAccessTime(newPath) > File.GetLastAccessTime(newPath.Replace(copyDirectory, pasteDirectory)))
+                    {
+
+                        File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
+                        LeftToTransfer--;
+                        totalFileSize -= newPath.Length;
+                        if (LeftToTransfer >= 0)
+                        {
+                            stateIsActive = true;
+                        }
+                        else
+                        {
+                            stateIsActive = false;
+                        }
+                    }
+
+                }
+                string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK");
+                ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
+                var logger = new Logger
+                {
+                    FName = name,
+                    FileSource = copyDirectory,
+                    FileTarget = pasteDirectory,
+                    FileSize = totalFileSize,
+                    Time = date
+                };
+                string jsonString = JsonConvert.SerializeObject(logger);
+                logger.SaveLog(jsonString);
 
             }
-            string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK");
-            ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
-            var logger = new Logger
-            {
-                FName = name,
-                FileSource = copyDirectory,
-                FileTarget = pasteDirectory,
-                FileSize = totalFileSize,
-                Time = date
-            };
-            string jsonString = JsonConvert.SerializeObject(logger);
-            logger.SaveLog(jsonString);
-
-
         }
 
         void SaveTimer(object sender, ElapsedEventArgs e)
@@ -192,11 +216,25 @@ namespace WPFDEMO.Model
         public void Encrypt(string sourceDir, string targetDir)//Fonction de cryptage
         {
             using (Process process = new Process())//Création du process
-            {   
+            {
                 process.StartInfo.FileName = @"..\..\..\Ressources\CryptoSoft.exe"; //Appel du process Cryptosoft
                 process.StartInfo.Arguments = String.Format("\"{0}\"", sourceDir) + " " + String.Format("\"{0}\"", targetDir);
                 process.Start();
                 process.Close();
+            }
+        }
+
+        private bool LogicielMetier()
+        {
+            Process[] workApp = Process.GetProcessesByName("Calculator");//trouver logiciel metier
+
+            if (workApp.Length > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
