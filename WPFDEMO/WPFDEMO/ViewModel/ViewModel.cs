@@ -72,11 +72,11 @@ namespace WPFDEMO.ViewModel
         }
         private void AddEnglish() 
         { 
-            CurrentLangues = new Langues("Add a new save name :", "Add the folder location :", "Add the folder destination :", "Complete Save", "Differential Save", "Banned app :", "Max file size :", "Extensions to crypt :", "Manual crypting key :", "Home", "Settings");
+            CurrentLangues = new Langues("Add a new save name :", "Add the folder location :", "Add the folder destination :", "Complete Save", "Differential Save", "Banned app :", "Max file size :", "Extensions to crypt :", "Manual crypting key :", "Home", "Settings", "Save");
         }
         private void Addfrench()
         {
-            CurrentLangues = new Langues( "Ajouter un nom à la sauvegarde :", "Ajouter le chemin d'accès du dossier :", "Ajouter le dossier de déstination :", "Sauvegarde Complete", "Sauvegarde Differentialle", "Logiciel de travail :", "Taille maximal :", "Clé de cryptage Manuelle :", "Extensions à crypter :", "Accueil", "Paramètres");
+            CurrentLangues = new Langues( "Ajouter un nom à la sauvegarde :", "Ajouter le chemin d'accès du dossier :", "Ajouter le dossier de déstination :", "Sauvegarde Complete", "Sauvegarde Differentialle", "Logiciel de travail :", "Taille maximal :", "Clé de cryptage Manuelle :", "Extensions à crypter :", "Accueil", "Paramètres", "Sauvegarder");
         }
         private void SettingsView()
         {
