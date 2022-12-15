@@ -85,9 +85,12 @@
     <Compile Include="Model\Logger.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Save.cs" />
-    <Compile Include="Remote\Server.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelSetting.cs" />
+    <Compile Include="View\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
     <Content Include="Ressources\CryptoSoft.exe" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\SettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

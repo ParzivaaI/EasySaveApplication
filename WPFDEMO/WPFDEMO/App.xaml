@@ -1,9 +1,12 @@
 ﻿<Application x:Class="WPFDEMO.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WPFDEMO"
+             xmlns:local="clr-namespace:WPFDEMO" 
+             xmlns:view="clr-namespace:WPFDEMO.View"
+             xmlns:vm="clr-namespace:WPFDEMO.ViewModel"
              StartupUri="View/View.xaml">
     <Application.Resources>
+
 
     </Application.Resources>
 </Application>
