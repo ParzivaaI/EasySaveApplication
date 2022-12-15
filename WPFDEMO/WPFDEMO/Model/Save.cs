@@ -192,13 +192,12 @@ namespace WPFDEMO.Model
         public void Encrypt(string sourceDir, string targetDir)//Fonction de cryptage
         {
             using (Process process = new Process())//Création du process
-            {
+            {   
                 process.StartInfo.FileName = @"..\..\..\Ressources\CryptoSoft.exe"; //Appel du process Cryptosoft
                 process.StartInfo.Arguments = String.Format("\"{0}\"", sourceDir) + " " + String.Format("\"{0}\"", targetDir);
                 process.Start();
                 process.Close();
             }
-
-            }*/
+        }
     }
 }
