@@ -43,7 +43,7 @@ namespace WPFDEMO.Model
 
         public void completesave()
         {
-            RunningSave.Variables(name,pathToCopy,pathToPaste, leftToTransfer);
+            RunningSave.Variables(name,pathToCopy,pathToPaste, leftToTransfer,bannedApp);
             RunningSave.CompleteSave();
         }
         public bool BlacklistedPrograms()

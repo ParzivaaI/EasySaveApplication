@@ -43,12 +43,13 @@ namespace WPFDEMO.Model
             SaveCompleted = "Complete";
             Maxsize = 1000000;
         }
-        public void Variables(string Name, string CopyDirectory, string PasteDirectory, int LeftToTransfer)
+        public void Variables(string Name, string CopyDirectory, string PasteDirectory, int LeftToTransfer,string BannedApp)
         {
             name = Name;//Initialisation des variables avec les valeurs de départ voulues
             copyDirectory = CopyDirectory;
             pasteDirectory = PasteDirectory;
             leftToTransfer = LeftToTransfer;
+            bannedApps = BannedApp;
         }
         public void ChangeableParameters(string BannedApps,long MaxFileSize,string ExtensionCrypt,int KeyCript)
         {
