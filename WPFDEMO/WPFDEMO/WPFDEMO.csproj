@@ -70,9 +70,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="XAct.Core.PCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\XAct.Core.PCL.0.0.5014.0\lib\portable-win+net45+sl50+wp80\XAct.Core.PCL.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -92,6 +89,10 @@
     <Compile Include="Model\Save.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelSetting.cs" />
+    <Compile Include="View\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\View.xaml.cs">
       <DependentUpon>View.xaml</DependentUpon>
     </Compile>
@@ -133,6 +134,10 @@
     <Content Include="Ressources\Cryptosoft\Cryptosoft.exe" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\SettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
