@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using WPFDEMO.Commands;
 using System.Diagnostics;
+using GalaSoft.MvvmLight;
 using System.Windows;
 
 namespace WPFDEMO.Model
@@ -19,12 +20,11 @@ namespace WPFDEMO.Model
         public BannedProgramm()
         {
             proclist = ProcessList();
-            bannedprogramms = Ban();
         }
         public string[] proclist;
         private string bannedprogramms;
         public string Ban()
-        { 
+        {
             string json = File.ReadAllText(Environment.CurrentDirectory+@"..\..\..\Ressources\Config.json");
             Dictionary<string, string> setting = JsonConvert.DeserializeObject< Dictionary<string, string>>(json);
             Application.Current.Properties["BannedApps"] = setting["BannedApps"];
