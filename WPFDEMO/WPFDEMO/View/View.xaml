@@ -202,8 +202,8 @@
             </Button>
             <Button 
                 Command="{Binding Settings}"
-                Content="Settings"
-                Margin="68,0,317,0" 
+                Content="{Binding CurrentLangues.settings}"
+                Margin="68,0,291,0" 
                 Foreground="White" 
                 FontSize="32" 
                 FontFamily="Yu Gothic UI Semibold" 
@@ -213,7 +213,7 @@
                 BorderBrush="{x:Null}"
                 FontWeight="Bold"
                 Grid.Column="1" Click="OpenSettings"/>
-            <Button Content="Home"
+            <Button Content="{Binding CurrentLangues.Home}"
                 Margin="255,0,491,0" 
                 Foreground="White" 
                 FontSize="32" 

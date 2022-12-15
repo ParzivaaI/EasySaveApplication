@@ -8,8 +8,10 @@ namespace WPFDEMO.Model
 {
     class Langues
     {
-        public Langues(string savename, string folderCopy, string folderPast, string saveComplete, string saveDifferential, string BannedAppText, string MaxFileText, string ExtToCrypt, string CryptKey)
+        public Langues(string savename, string folderCopy, string folderPast, string saveComplete, string saveDifferential, string BannedAppText, string MaxFileText, string ExtToCrypt, string CryptKey,string Home, string settings)
         {
+            this.Home = Home;
+            this.settings = settings;
             this.CryptKey = CryptKey;
             this.ExtToCrypt = ExtToCrypt;
             this.MaxFileText = MaxFileText;
@@ -20,6 +22,8 @@ namespace WPFDEMO.Model
             this.saveComplete = saveComplete;
             this.saveDifferential = saveDifferential;
         }
+        public String Home { get; set; }
+        public String settings { get; set; }
         public String CryptKey { get; set; }
         public String ExtToCrypt { get; set; }
         public String MaxFileText { get; set; }
@@ -32,6 +36,8 @@ namespace WPFDEMO.Model
 
         public Langues()
         {
+            this.Home = "Home";
+            this.settings = "Settings";
             this.savename = "Add a new save name :";
             this.folderCopy = "add the location of the folder :";
             this.folderPast = "add the destination of the folder :";
