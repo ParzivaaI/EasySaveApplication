@@ -66,6 +66,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\BannedPrograms.cs" />
+    <Compile Include="Model\ConfigFile.cs" />
+    <Compile Include="Model\ConfigFileJson.cs" />
     <Compile Include="Model\Logger.cs" />
     <Compile Include="Model\State.cs" />
     <Compile Include="Model\Save.cs" />
@@ -102,12 +104,16 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Ressources\Config.json" />
+    <None Include="Ressources\Cryptosoft\Cryptosoft.deps.json" />
+    <None Include="Ressources\Cryptosoft\Cryptosoft.runtimeconfig.dev.json" />
+    <None Include="Ressources\Cryptosoft\Cryptosoft.runtimeconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Ressources\CryptoSoft.exe" />
+    <Content Include="Ressources\Cryptosoft\Cryptosoft.dll" />
+    <Content Include="Ressources\Cryptosoft\Cryptosoft.exe" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="View\View.xaml">
