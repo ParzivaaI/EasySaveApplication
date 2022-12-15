@@ -11,7 +11,10 @@ namespace WPFDEMO.Model
 {
     public class Save
     {
-        long maxsize;
+        long maxSize;
+        string bannedApps;
+        string extensionCrypt;
+        int cryptKey;
         string name;
         string copyDirectory;
         string pasteDirectory;
@@ -26,8 +29,12 @@ namespace WPFDEMO.Model
         public string Name { get => name; set => name = value; }
         public string CopyDirectory { get => copyDirectory; set => copyDirectory = value; }
         public string SaveCompleted { get => saveCompleted; set => saveCompleted = value; }
-        public long Maxsize { get => maxsize; set => maxsize = value; }
+        public long Maxsize { get => maxSize; set => maxSize = value; }
         public bool StateIsActive { get => stateIsActive; set => stateIsActive = value; }
+        public int CryptKey { get => cryptKey; set => cryptKey = value; }
+        public string ExtensionCrypt { get => extensionCrypt; set => extensionCrypt = value; }
+        public string BannedApps { get => bannedApps; set => bannedApps = value; }
+
         public Save()
         {
             Name = "EasySaved";//Initialisation de Save avec des données de départ
@@ -42,6 +49,13 @@ namespace WPFDEMO.Model
             copyDirectory = CopyDirectory;
             pasteDirectory = PasteDirectory;
             leftToTransfer = LeftToTransfer;
+        }
+        public void ChangeableParameters(string BannedApps,long MaxFileSize,string ExtensionCrypt,int KeyCript)
+        {
+            maxSize = MaxFileSize;
+            bannedApps = BannedApps;
+            extensionCrypt = ExtensionCrypt;
+            cryptKey = KeyCript;
         }
         public void CryptingData()
         {
@@ -100,7 +114,7 @@ namespace WPFDEMO.Model
                     totalFileSize = newPath.Length;
                     //ajouter ici si file de taille superieure à variable de taille, refuser copie
                     long length = new System.IO.FileInfo(newPath).Length;
-                    if (length > maxsize)
+                    if (length > maxSize)
                     {
                         if (LeftToTransfer >= 0)
                         {
@@ -176,36 +190,39 @@ namespace WPFDEMO.Model
                 //Copie les fichiers, remplace si nom identique
                 foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
                 {
-                    if (File.GetLastAccessTime(newPath) > File.GetLastAccessTime(newPath.Replace(copyDirectory, pasteDirectory)))
-                    {
+                    long length = new System.IO.FileInfo(newPath).Length;
+                    if (length > maxSize)
+                    { 
+                         if (File.GetLastAccessTime(newPath) > File.GetLastAccessTime(newPath.Replace(copyDirectory, pasteDirectory)))
+                        {
 
-                        File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
-                        LeftToTransfer--;
-                        totalFileSize -= newPath.Length;
-                        if (LeftToTransfer >= 0)
-                        {
-                            stateIsActive = true;
+                            File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
+                            LeftToTransfer--;
+                            totalFileSize -= newPath.Length;
+                            if (LeftToTransfer >= 0)
+                            {
+                                stateIsActive = true;
+                            }
+                            else
+                            {
+                                stateIsActive = false;
+                            }
                         }
-                        else
-                        {
-                            stateIsActive = false;
-                        }
+
                     }
-
+                    string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK");
+                    ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
+                    var logger = new Logger
+                    {
+                        FName = name,
+                        FileSource = copyDirectory,
+                        FileTarget = pasteDirectory,
+                        FileSize = totalFileSize,
+                        Time = date
+                    };
+                    string jsonString = JsonConvert.SerializeObject(logger);
+                    logger.SaveLog(jsonString);
                 }
-                string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK");
-                ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
-                var logger = new Logger
-                {
-                    FName = name,
-                    FileSource = copyDirectory,
-                    FileTarget = pasteDirectory,
-                    FileSize = totalFileSize,
-                    Time = date
-                };
-                string jsonString = JsonConvert.SerializeObject(logger);
-                logger.SaveLog(jsonString);
-
             }
         }
 
