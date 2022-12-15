@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using WPFDEMO.Commands;
 using System.Diagnostics;
 using GalaSoft.MvvmLight;
+using System.Windows;
 
 namespace WPFDEMO.Model
 {

@@ -32,6 +32,11 @@ namespace WPFDEMO.Model
             get;
             set;
         }
+        public int FileLength
+        {
+            get;
+            set;
+        }
 
         public StateFunction()
         {

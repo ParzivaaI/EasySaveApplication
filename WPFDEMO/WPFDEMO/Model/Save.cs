@@ -11,7 +11,6 @@ namespace WPFDEMO.Model
 {
     public class Save
     {
-        //public delegate void SaveChange(StateFunction state);
         long maxsize;
         string name;
         string copyDirectory;
@@ -29,10 +28,9 @@ namespace WPFDEMO.Model
         public string SaveCompleted { get => saveCompleted; set => saveCompleted = value; }
         public long Maxsize { get => maxsize; set => maxsize = value; }
         public bool StateIsActive { get => stateIsActive; set => stateIsActive = value; }
-        /*string[] blacklistedApps = Model.GetBlackList();*/
         public Save()
         {
-            Name = "EasySaved";
+            Name = "EasySaved";//Initialisation de Save avec des données de départ
             CopyDirectory = @"C:\";
             PasteDirectory = @"C:\Program Files";
             SaveCompleted = "Complete";
@@ -40,7 +38,7 @@ namespace WPFDEMO.Model
         }
         public void Variables(string Name, string CopyDirectory, string PasteDirectory, int LeftToTransfer)
         {
-            name = Name;
+            name = Name;//Initialisation des variables avec les valeurs de départ voulues
             copyDirectory = CopyDirectory;
             pasteDirectory = PasteDirectory;
             leftToTransfer = LeftToTransfer;
@@ -94,7 +92,7 @@ namespace WPFDEMO.Model
                 {
                   if (LeftToTransfer >= 0)
                   {
-                      //CryptingData(); crypting the file
+                      CryptingData(); //crypting the file
                       bool stateIsActive;
                       File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
                       LeftToTransfer--; //On décrémente le nombre de fichiers restant à copier
@@ -116,17 +114,6 @@ namespace WPFDEMO.Model
                   leftToTransfer--;
                 }
             }
-            var state = new StateFunction
-            {
-                FName = name,
-                FileSource = copyDirectory,
-                FileTarget = pasteDirectory,
-                FileSize = totalFileSize,
-                Time = date,
-                StateActive = stateIsActive,
-            };
-            string jsonstateString = JsonConvert.SerializeObject(state);
-            state.StateCreate(jsonstateString);
 
             var logger = new Logger
             {
@@ -183,17 +170,7 @@ namespace WPFDEMO.Model
 
             }
             string date = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ssK");
-            var state = new StateFunction
-            {
-                FName = name,
-                FileSource = copyDirectory,
-                FileTarget = pasteDirectory,
-                FileSize = totalFileSize,
-                Time = date,
-                StateActive = stateIsActive,
-            };
-            string jsonstateString = JsonConvert.SerializeObject(state);
-            state.StateCreate(jsonstateString);
+            ObjStateFunction.StateCreate(copyDirectory, pasteDirectory, name, stateIsActive, LeftToTransfer, totalFileSize, saveCompleted);
             var logger = new Logger
             {
                 FName = name,
@@ -212,29 +189,15 @@ namespace WPFDEMO.Model
         {
             TimeCounter++;
         }
-        public string EncryptDecrypt(string szPlainText, int clehash)
+        public void Encrypt(string sourceDir, string targetDir)//Fonction de cryptage
         {
-            StringBuilder szInputStringBuild = new StringBuilder(szPlainText);
-            StringBuilder szOutStringBuild = new StringBuilder(szPlainText.Length);
-            char Textch;
-            for (int iCount = 0; iCount < szPlainText.Length; iCount++)
+            using (Process process = new Process())//Création du process
             {
-                Textch = szInputStringBuild[iCount];
-                Textch = (char)(Textch ^ clehash);
-                szOutStringBuild.Append(Textch);
+                process.StartInfo.FileName = @"..\..\..\Ressources\CryptoSoft.exe"; //Appel du process Cryptosoft
+                process.StartInfo.Arguments = String.Format("\"{0}\"", sourceDir) + " " + String.Format("\"{0}\"", targetDir);
+                process.Start();
+                process.Close();
             }
-            return szOutStringBuild.ToString();
-        }
-    /*        public void Encrypt(string sourceDir, string targetDir)//Fonction de cryptage
-            {
-                using (Process process = new Process())//Création du process
-                {
-                    process.StartInfo.FileName = @"..\..\..\Ressources\CryptoSoft\CryptoSoft.exe"; //Calls the process that is CryptoSoft
-                    process.StartInfo.Arguments = String.Format("\"{0}\"", sourceDir) + " " + String.Format("\"{0}\"", targetDir); //Preparation of variables for the process.
-                    process.Start(); //Launching the process
-                    process.Close();
-
-                }
 
             }*/
     }

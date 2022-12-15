@@ -5,11 +5,11 @@ using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using Microsoft.Win32;
-using WPFDEMO.Commands;
 using System.Diagnostics;
 using System.Windows;
 using System.Threading;
 using System.Text;
+using WPFDEMO.Model;
 
 namespace WPFDEMO.Model
 {
