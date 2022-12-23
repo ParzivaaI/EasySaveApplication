@@ -42,7 +42,7 @@
                        Foreground="White" 
                        FontWeight="Bold"><Run Foreground="#FFE45151" Text="E"/><Run Text="asy"/><Run Foreground="Yellow" Text="S"/><Run Text="ave"/></TextBlock>
             <TextBox Text="{Binding CurrentModele.maxSize}"
-                     x:Name="CopyFilePath" HorizontalAlignment="Left" 
+                     x:Name="MaxFileSize" HorizontalAlignment="Left" 
                      Height="24" 
                      Margin="124,161,0,0" 
                      Grid.Row="1" 

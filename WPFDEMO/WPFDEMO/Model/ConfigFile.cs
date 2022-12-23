@@ -33,7 +33,8 @@ namespace WPFDEMO.Model
                     cryptoKey = GenerateCryptoKey(),
                     cryptedExtensions = "",
                     priorityExtensions = "",
-                    workSoftware = ""
+                    workSoftware = "",
+                    cryptpath= @"C:\xampp\htdocs\A\EasySaveApplication\WPFDEMO\WPFDEMO\Ressources\Cryptosoft\Cryptosoft.exe"
                 };
 
                 Data = JsonConvert.SerializeObject(configFileJson);
@@ -89,6 +90,9 @@ namespace WPFDEMO.Model
                     break;
                 case "PriorityExtensions":
                     element = configFileJson.priorityExtensions;
+                    break;
+                case "CryptingAppPath":
+                    element = configFileJson.cryptpath;
                     break;
             }
             return element;

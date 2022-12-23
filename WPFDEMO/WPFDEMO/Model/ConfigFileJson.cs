@@ -19,5 +19,6 @@ namespace WPFDEMO.Model
         public string cryptedExtensions;
         public string priorityExtensions;
         public string workSoftware;
+        public string cryptpath;
     }
 }

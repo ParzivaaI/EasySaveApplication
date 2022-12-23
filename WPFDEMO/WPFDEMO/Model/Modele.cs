@@ -46,6 +46,11 @@ namespace WPFDEMO.Model
             RunningSave.Variables(name,pathToCopy,pathToPaste, leftToTransfer,bannedApp);
             RunningSave.CompleteSave();
         }
+        public void diffsave()
+        {
+            RunningSave.Variables(name, pathToCopy, pathToPaste, leftToTransfer, bannedApp);
+            RunningSave.DiffSave();
+        }
         public bool BlacklistedPrograms()
         {
             //foreach(BannedProgramms.Black_list in process.) //Verifier parmi les processus en cours si un programme de la blacklist est présent

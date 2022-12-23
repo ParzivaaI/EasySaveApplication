@@ -1,7 +1,8 @@
 {
-    "BannedApps": "Calculator",
+    "BannedApps": "",
     "MaxSize": "",
     "PriorityFile": "",
     "CryptExtension": "",
-    "CryptingKey": ""
+    "CryptingKey": "",
+    "CryptingAppPath": ""
 }

@@ -34,7 +34,8 @@ namespace WPFDEMO.ViewModel
             get { return currentLangues; }
             set { currentLangues = value; RaisePropertyChanged("currentLangues"); }
         }
-        public ICommand Save { get; set; }
+        public ICommand CompleteSave { get; set; }
+        public ICommand DiffSave { get; set; }
         public ICommand Francais { get; set; }
         public ICommand English { get; set; }
         public ICommand Settings { get; set; }
@@ -45,7 +46,8 @@ namespace WPFDEMO.ViewModel
             CurrentView = CurrentSettingsView;
             currentLangues = new Langues();
             currentModele = new Modele();
-            Save = new RelayCommand(CompleteSaveFunction);
+            CompleteSave = new RelayCommand(CompleteSaveFunction);
+            DiffSave = new RelayCommand(DiffSaveFunction);
             Francais = new RelayCommand(Addfrench);
             English = new RelayCommand(AddEnglish);
             Settings = new RelayCommand(SettingsView);
@@ -54,6 +56,11 @@ namespace WPFDEMO.ViewModel
         {
             currentModele.completesave();
             CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToPaste, 0,currentModele.maxSize, currentModele.bannedApp,currentModele.extensionCrypt,currentModele.cryptKey) ;
+        }
+        private void DiffSaveFunction()
+        {
+            currentModele.diffsave();
+            CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToPaste, 0, currentModele.maxSize, currentModele.bannedApp, currentModele.extensionCrypt, currentModele.cryptKey);
         }
         private void AddEnglish() 
         { 

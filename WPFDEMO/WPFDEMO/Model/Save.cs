@@ -21,6 +21,8 @@ namespace WPFDEMO.Model
         int leftToTransfer;
         bool stateIsActive;
         string saveCompleted;
+        string cryptoPath;
+        int cryptingtime;
         public static int TimeCounter = 0;
         public static Timer timer = new Timer(500);
 
@@ -34,6 +36,7 @@ namespace WPFDEMO.Model
         public int CryptKey { get => cryptKey; set => cryptKey = value; }
         public string ExtensionCrypt { get => extensionCrypt; set => extensionCrypt = value; }
         public string BannedApps { get => bannedApps; set => bannedApps = value; }
+        public string CryptoPath { get => cryptoPath; set => cryptoPath = value; }
 
         public Save()
         {
@@ -42,6 +45,7 @@ namespace WPFDEMO.Model
             PasteDirectory = @"C:\Program Files";
             SaveCompleted = "Complete";
             Maxsize = 1000000;
+            cryptoPath = @"C:\Users\valen\OneDrive\Bureau\CESI\FISE3\CryptoSoft\Cryptosoft.exe";
         }
         public void Variables(string Name, string CopyDirectory, string PasteDirectory, int LeftToTransfer,string BannedApp)
         {
@@ -58,17 +62,13 @@ namespace WPFDEMO.Model
             extensionCrypt = ExtensionCrypt;
             cryptKey = KeyCript;
         }
-        public void CryptingData()
+        public void CryptingData(string copypath, string pastepath)
         {
-            var date = DateTime.Now; //Mettre la date du jour
-            long totalFileSize = 0; //Initialiser la taille totale du fichier
-            pasteDirectory += @"\";
-            Process process = new Process();
-            process.StartInfo.FileName = @"../Cryptosoft/Cryptosoft.exe";
-            process.StartInfo.Arguments = copyDirectory;       // copy
-            process.StartInfo.Arguments += pasteDirectory;  // paste path
-            /*process.Start();
-            process.WaitForExit();*/
+            Process cryptprocess = new Process();
+            cryptprocess.StartInfo.FileName = cryptoPath;
+            cryptprocess.StartInfo.Arguments = "sourcepath "+ copypath + "destinationpath" + pastepath;
+            cryptprocess.Start();
+            cryptprocess.WaitForExit();
         }
         public void CompleteSave()
         {
@@ -108,7 +108,7 @@ namespace WPFDEMO.Model
                 }
                 foreach (string newPath in Directory.GetFiles(copyDirectory, "*.*", SearchOption.AllDirectories))
                 {
-                    CryptingData(); //crypting the file
+                    CryptingData(newPath,newPath.Replace(copyDirectory,pasteDirectory)); //crypting the file
                     File.Copy(newPath, newPath.Replace(copyDirectory, pasteDirectory), true);
                     LeftToTransfer--;
                     TimeCounter++;
