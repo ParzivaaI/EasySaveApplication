@@ -93,21 +93,23 @@ namespace WPFDEMO.ViewModel
         }
         private void BrowseSource()
         {
-            using (var openFileDialog = new OpenFileDialog())
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
             {
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+                if (result == System.Windows.Forms.DialogResult.OK)
                 {
-                    SelectedFilePathSource = openFileDialog.FileName;
+                    SelectedFilePathSource = dialog.SelectedPath;
                 }
             }
         }
         private void BrowseTarget()
         {
-            using (var openFileDialog = new OpenFileDialog())
+            using (var dialog = new System.Windows.Forms.FolderBrowserDialog())
             {
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+                if (result == System.Windows.Forms.DialogResult.OK)
                 {
-                    SelectedFilePathTarget = openFileDialog.FileName;
+                    SelectedFilePathTarget = dialog.SelectedPath;
                 }
             }
         }
