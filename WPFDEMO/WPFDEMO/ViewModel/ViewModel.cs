@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Forms;
 using System.Windows.Input;
 using WPFDEMO.Commands;
 using WPFDEMO.Model;
@@ -9,6 +10,7 @@ namespace WPFDEMO.ViewModel
 {
     class ViewModel : INotifyPropertyChanged
     {
+        private string _selectedFilePath;
         private object currentView;
         ViewModelSetting CurrentSettingsView;
         Langues currentLangues;
@@ -18,6 +20,24 @@ namespace WPFDEMO.ViewModel
         {
             //MessageBox.Show("Hello"+ propertyName);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+        public string SelectedFilePathTarget
+        {
+            get { return _selectedFilePath; }
+            set
+            {
+                _selectedFilePath = value;
+                RaisePropertyChanged();
+            }
+        }
+        public string SelectedFilePathSource
+        {
+            get { return _selectedFilePath; }
+            set
+            {
+                _selectedFilePath = value;
+                RaisePropertyChanged();
+            }
         }
         public object CurrentView
         {
@@ -41,6 +61,8 @@ namespace WPFDEMO.ViewModel
         public ICommand Francais { get; set; }
         public ICommand English { get; set; }
         public ICommand Settings { get; set; }
+        public ICommand BrowseCommandSource { get; set; }
+        public ICommand BrowseCommandTarget { get; set; }
         //Constructeur
         public ViewModel()
         {
@@ -54,6 +76,8 @@ namespace WPFDEMO.ViewModel
             Francais = new RelayCommand(Addfrench);
             English = new RelayCommand(AddEnglish);
             Settings = new RelayCommand(SettingsView);
+            BrowseCommandSource = new RelayCommand(BrowseSource);
+            BrowseCommandTarget = new RelayCommand(BrowseTarget);
         }
 
         private void CompleteSaveFunction()
@@ -72,15 +96,35 @@ namespace WPFDEMO.ViewModel
         }
         private void AddEnglish() 
         { 
-            CurrentLangues = new Langues("Add a new save name :", "Add the folder location :", "Add the folder destination :", "Complete Save", "Differential Save", "Banned app :", "Max file size :", "Extensions to crypt :", "Manual crypting key :", "Home", "Settings", "Save");
+            CurrentLangues = new Langues("HOME","Add a new save name :", "Add the folder location :", "Add the folder destination :", "Complete Save", "Differential Save", "Banned app :", "Max file size :", "Extensions to crypt :", "Manual crypting key :", "List of saves", "Settings");
         }
         private void Addfrench()
         {
-            CurrentLangues = new Langues( "Ajouter un nom à la sauvegarde :", "Ajouter le chemin d'accès du dossier :", "Ajouter le dossier de déstination :", "Sauvegarde Complete", "Sauvegarde Differentialle", "Logiciel de travail :", "Taille maximal :", "Clé de cryptage Manuelle :", "Extensions à crypter :", "Accueil", "Paramètres", "Sauvegarder");
+            CurrentLangues = new Langues("Accueil", "Ajouter un nom à la sauvegarde :", "Ajouter le chemin d'accès du dossier :", "Ajouter le dossier de déstination :", "Sauvegarde Complete", "Sauvegarde Differentialle", "Logiciel de travail :", "Taille maximal :", "Clé de cryptage Manuelle :", "Extensions à crypter :", "Liste des sauvgardes", "Paramètres");
         }
         private void SettingsView()
         {
             CurrentView = new ViewModelSetting();
+        }
+        private void BrowseSource()
+        {
+            using (var openFileDialog = new OpenFileDialog())
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    SelectedFilePathSource = openFileDialog.FileName;
+                }
+            }
+        }
+        private void BrowseTarget()
+        {
+            using (var openFileDialog = new OpenFileDialog())
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    SelectedFilePathTarget = openFileDialog.FileName;
+                }
+            }
         }
     }
 }

@@ -87,3 +87,5 @@ C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEM
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.exe
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.pdb
 C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\WPFDEMO.csproj.AssemblyReference.cache
+C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\View\RunView.g.cs
+C:\Users\33767\source\repos\EasySaveApplication\WPFDEMO\WPFDEMO\obj\Debug\View\RunView.baml
