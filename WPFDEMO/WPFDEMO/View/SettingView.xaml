@@ -41,7 +41,7 @@
                        FontSize="36" 
                        Foreground="White" 
                        FontWeight="Bold"><Run Foreground="#FFE45151" Text="E"/><Run Text="asy"/><Run Foreground="Yellow" Text="S"/><Run Text="ave"/></TextBlock>
-            <TextBox Text="" 
+            <TextBox Text="{Binding CurrentModele.maxSize}"
                      x:Name="CopyFilePath" HorizontalAlignment="Left" 
                      Height="24" 
                      Margin="124,161,0,0" 
@@ -113,7 +113,7 @@
                 </Button.Background>
             </Button>
             <TextBox 
-                    Text="" 
+                    Text="{Binding CurrentModele.bannedApp}"
                     HorizontalAlignment="Left"
                      Height="26" Margin="124,66,0,0" 
                      Grid.Row="1" 

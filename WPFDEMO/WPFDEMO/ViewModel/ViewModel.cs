@@ -54,9 +54,6 @@ namespace WPFDEMO.ViewModel
             get { return currentLangues; }
             set { currentLangues = value; RaisePropertyChanged("currentLangues"); }
         }
-
-        public ICommand MajusculeCommand { get; set; }
-        public ICommand MinusculeCommand { get; set; }
         public ICommand Save { get; set; }
         public ICommand Francais { get; set; }
         public ICommand English { get; set; }
@@ -70,8 +67,6 @@ namespace WPFDEMO.ViewModel
             CurrentView = CurrentSettingsView;
             currentLangues = new Langues();
             currentModele = new Modele();
-            MajusculeCommand = new RelayCommand(toUppercase);
-            MinusculeCommand = new RelayCommand(toLowercase);
             Save = new RelayCommand(CompleteSaveFunction);
             Francais = new RelayCommand(Addfrench);
             English = new RelayCommand(AddEnglish);
@@ -79,20 +74,10 @@ namespace WPFDEMO.ViewModel
             BrowseCommandSource = new RelayCommand(BrowseSource);
             BrowseCommandTarget = new RelayCommand(BrowseTarget);
         }
-
         private void CompleteSaveFunction()
         {
             currentModele.completesave();
-            CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToPaste, 0);
-        }
-        private void toUppercase()
-        {
-            CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToCopy.ToUpper(), 0);
-        }
-        private void toLowercase()
-        {
-            currentModele.minuscule();
-            CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToPaste, 0);
+            CurrentModele = new Modele(currentModele.name, currentModele.pathToCopy, currentModele.pathToPaste, 0,currentModele.maxSize, currentModele.bannedApp,currentModele.extensionCrypt,currentModele.cryptKey) ;
         }
         private void AddEnglish() 
         { 
